@@ -1,28 +1,40 @@
 # google-seo-checker
 
-> Turn [Google Search's 152 official docs](https://developers.google.com/search/docs) into **65 executable rules** + a **keyword lookup** over the docs themselves.
+> **For developers shipping SSR/SSG pages:** audit one HTML page for metadata,
+> canonical, robots and structured-data issues, with a source link for each rule.
 >
-> Every rule cites the doc page it came from. No LLM-invented "Google recommends ..."
+> This is a transparent preflight check, not a ranking guarantee. It does not
+> execute JavaScript or crawl a whole site.
 
 English · [中文](./README.md)
 
+## Try the checker from source
+
+Requires **Node.js 18+** and Git. No runtime dependencies or account are needed
+for the local example. Use this source checkout; npm installation will be
+documented after a verified package release.
+
 ```bash
-npx google-seo-checker https://example.com/
+git clone https://github.com/yangyangnovelist-hub/google-seo-checker.git
+cd google-seo-checker
+node cli.mjs ./examples/quickstart.html --filter=meta,schema --json
 ```
 
-```
-SEO Checker — https://example.com/
-  HTTP 200
+The intentionally incomplete fixture produces a JSON report with failed rules
+and Google documentation links. **Exit code 1 means findings, not an installation
+failure**; 2 means a tool error. The report's messages currently use Chinese,
+including in JSON. The English guide explains the command and result fields.
 
-49 pass  9 warn  1 fail  6 skip
+Then check your own built HTML, or fetch a public page:
 
-FAIL
-  ✗ no-mixed-content [crawl]
-     HTTPS page must not reference http: resources
-     ▶ 1 http: resource found
-     http://s7.addthis.com/js/300/addthis_widget.js
-     → https://developers.google.com/search/docs/essentials/technical
+```bash
+node cli.mjs ./dist/index.html --json
+node cli.mjs https://example.com/ --json
 ```
+
+Local HTML checks do not fetch robots.txt or sitemaps. Public-URL checks make
+network requests; client-rendered content is not executed. See
+[limitations](#limitations-no-marketing-fluff) before interpreting findings.
 
 ## Why
 
@@ -35,21 +47,19 @@ Meanwhile the actual ground truth — [developers.google.com/search/docs](https:
 
 This tool's job: **turn the machine-checkable parts of those 152 pages into if-statements**, each linked back to its source doc.
 
-## Install
+## Install the optional CLI aliases
+
+After cloning the source above, run `npm link` from the repository directory
+to make `seo-check` and `seo-lookup` available locally as CLI aliases. This
+links your checkout; it does not download a published package.
 
 ```bash
-# Global CLI
-npm i -g google-seo-checker
-seo-check https://example.com/
-
-# Or via npx without installing
-npx google-seo-checker https://example.com/
-
-# Project-local dev dep
-npm i -D google-seo-checker
+npm link
+seo-check ./examples/quickstart.html --filter=meta,schema --json
 ```
 
-Requires Node ≥ 18 (uses built-in `fetch`). Zero runtime dependencies.
+To remove those aliases later: `npm unlink -g google-seo-checker`.
+You can keep using `node cli.mjs` and `node lookup.mjs` without linking.
 
 ## Three entry points
 
@@ -152,7 +162,7 @@ Full `ctx` shape in [`run.mjs`](./run.mjs).
 
 ## As a Claude Code skill
 
-See [`SKILL.md`](./SKILL.md). Install via:
+After `npm link`, see [`SKILL.md`](./SKILL.md) and link the local package as a skill:
 
 ```bash
 mkdir -p ~/.claude/skills/google-seo-checker

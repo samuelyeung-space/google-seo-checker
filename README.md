@@ -1,28 +1,32 @@
 # google-seo-checker
 
-> 把 [Google Search 152 篇官方文档](https://developers.google.com/search/docs) 变成 **65 条机检规则** + **全文反查工具**。
+> **For developers shipping SSR/SSG pages:** a single-page SEO preflight with
+> transparent rules and Google documentation links. [Read the English quick start](./README.en.md).
 >
-> 每条规则都带 `→ 原文链接`。不靠 LLM 凭印象编"Google 推荐 ..."。
+> 把 [Google Search 152 篇官方文档](https://developers.google.com/search/docs) 里能机检的部分变成 **65 条规则** + **全文反查工具**。规则是人工挑选，不是 Google 官方工具，也不保证排名。
 
-[English](./README.en.md) · 中文
+[English quick start](./README.en.md) · 中文
+
+## 从源码立即试用
+
+需要 Node.js ≥ 18 和 Git；本地示例不需要账号或运行时依赖。当前先使用源码路径；验证 npm 包正式发布后再补包安装入口。
 
 ```bash
-npx google-seo-checker https://example.com/
+git clone https://github.com/yangyangnovelist-hub/google-seo-checker.git
+cd google-seo-checker
+node cli.mjs ./examples/quickstart.html --filter=meta,schema --json
 ```
 
-```
-SEO Checker — https://example.com/
-  HTTP 200
+这是刻意缺少部分元数据的示例。JSON 结果含失败规则与 Google 原文链接；退出码 `1` 表示查出问题，不是安装失败，`2` 才是工具异常。报告消息目前为中文，英文说明见上方入口。
 
-49 通过  9 警告  1 错误  6 跳过
+检查自己的构建产物或公开页面：
 
-错误 (FAIL)
-  ✗ no-mixed-content [可抓取性]
-     HTTPS 页面不应引用 http: 资源（mixed content）
-     ▶ 1 处 http: 资源
-     http://s7.addthis.com/js/300/addthis_widget.js
-     → https://developers.google.com/search/docs/essentials/technical
+```bash
+node cli.mjs ./dist/index.html --json
+node cli.mjs https://example.com/ --json
 ```
+
+本地 HTML 不抓 robots.txt / sitemap；公开 URL 会发网络请求。工具不执行页面 JavaScript，也不做全站抓取。
 
 ## 为什么有这个
 
@@ -35,21 +39,16 @@ SEO Checker — https://example.com/
 
 这个工具做的事：**把那 152 篇里能机检的部分写成 if 语句**，每条规则都带出处链接。
 
-## 安装
+## 安装可选命令别名
+
+克隆源码后，在仓库根目录运行 `npm link`，将本地 checkout 链接为 `seo-check` / `seo-lookup`。这不依赖同名 npm 包已发布。
 
 ```bash
-# 全局命令
-npm i -g google-seo-checker
-seo-check https://example.com/
-
-# 或直接用 npx，不装
-npx google-seo-checker https://example.com/
-
-# 项目里用
-npm i -D google-seo-checker
+npm link
+seo-check ./examples/quickstart.html --filter=meta,schema --json
 ```
 
-要求 Node ≥ 18（用了内置 `fetch`）。零运行时依赖。
+撤销别名：`npm unlink -g google-seo-checker`。也可以始终直接运行 `node cli.mjs` / `node lookup.mjs`。
 
 ## 三个入口
 
@@ -157,7 +156,7 @@ RULES.find(r => r.id === 'no-mixed-content');
 
 ## 用作 Claude Code skill
 
-仓库里附了 [`SKILL.md`](./SKILL.md)。装法：
+仓库里附了 [`SKILL.md`](./SKILL.md)。先在源码仓运行 `npm link`，再链接为 skill：
 
 ```bash
 # 装到 Claude Code 个人 skill 目录
