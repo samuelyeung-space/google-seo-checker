@@ -1,6 +1,5 @@
-// Tiny smoke test. Not a full test suite — just verifies the rule engine
-// loads, runs against a hand-built HTML fixture, and produces sensible
-// pass/fail counts. Designed to be runnable without network.
+// Offline smoke tests plus focused rule regressions through the public API.
+// Fixtures exercise HTML/JSON-LD parsing and the resulting rule statuses.
 //
 //   node test.mjs
 
@@ -82,6 +81,70 @@ async function main() {
     assert(failIds.includes('title-present'), 'detects empty <title>');
     assert(failIds.includes('jsonld-valid'), 'detects invalid JSON-LD');
     assert(failIds.includes('img-alt'), 'detects missing alt');
+
+    async function checkFixture(name, head, ruleId, expectedStatus, expectedMessage) {
+      const file = path.join(tmp, `${name}.html`);
+      await writeFile(file, `<!doctype html><html><head>${head}</head><body><h1>Example</h1></body></html>`);
+      const report = await check(file);
+      const result = report.results.find(r => r.id === ruleId);
+      assert(result?.status === expectedStatus && report.summary.error === 0,
+        `${name}: ${ruleId} expected ${expectedStatus}, got ${result?.status} (${report.summary.error} rule errors)`);
+      if (expectedMessage) assert(result.message === expectedMessage, `${name}: reports the blocking meta tag`);
+    }
+
+    console.log('\n4. Robots and Googlebot meta regressions');
+    // https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag
+    // Negative rules combine across tags; names/values ignore case; none = noindex,nofollow.
+    const robotsCases = [
+      ['robots-noindex', '<meta name="robots" content="noindex">', 'fail'],
+      ['later-robots-noindex', '<meta name="robots" content="index"><meta name="robots" content="noindex">', 'fail'],
+      ['earlier-robots-noindex', '<meta name="robots" content="noindex"><meta name="robots" content="index">', 'fail'],
+      ['googlebot-noindex', '<meta name="googlebot" content="noindex">', 'fail', '<meta name="googlebot" content="noindex">'],
+      ['googlebot-overrides-index', '<meta name="robots" content="index"><meta name="googlebot" content="noindex">', 'fail'],
+      ['robots-overrides-index', '<meta name="robots" content="noindex"><meta name="googlebot" content="index">', 'fail'],
+      ['later-googlebot-noindex', '<meta name="googlebot" content="index"><meta name="googlebot" content="noindex">', 'fail'],
+      ['mixed-case-robots', '<META NAME="RoBoTs" CONTENT="follow, NoInDeX">', 'fail'],
+      ['mixed-case-googlebot', '<META NAME="GoOgLeBoT" CONTENT="NoInDeX, FOLLOW">', 'fail'],
+      ['robots-none', '<meta name="robots" content="none">', 'fail'],
+      ['googlebot-none', '<meta name="googlebot" content="NoNe">', 'fail'],
+      ['image-preview-none', '<meta name="robots" content="max-image-preview: none, index">', 'pass'],
+      ['other-crawler', '<meta name="bingbot" content="noindex">', 'pass'],
+      ['news-only-crawler', '<meta name="googlebot-news" content="noindex">', 'pass'],
+      ['directive-substring', '<meta name="robots" content="noindexing">', 'pass'],
+      ['indexing-allowed', '<meta name="robots" content="index, nofollow"><meta name="googlebot">', 'pass'],
+    ];
+    for (const [name, head, expectedStatus, expectedMessage] of robotsCases) {
+      await checkFixture(name, head, 'no-noindex', expectedStatus, expectedMessage);
+    }
+    const headerResult = RULES.find(r => r.id === 'no-noindex').check({
+      metas: [], headers: { 'x-robots-tag': 'NOINDEX' },
+    });
+    assert(headerResult.status === 'fail', 'existing X-Robots-Tag noindex detection is preserved');
+
+    console.log('\n5. Product offer price regressions');
+    // Google explicitly shows price: 0 for products available without payment:
+    // https://developers.google.com/search/docs/appearance/structured-data/product-snippet#offer-details
+    const offer = values => ({ '@type': 'Offer', priceCurrency: 'USD', ...values });
+    const productCases = [
+      ['zero-price', offer({ price: 0 }), 'pass'],
+      ['string-zero-price', offer({ price: '0' }), 'pass'],
+      ['positive-price', offer({ price: 9.99 }), 'pass'],
+      ['nested-zero-price', offer({ priceSpecification: { '@type': 'PriceSpecification', price: 0 } }), 'pass'],
+      ['offers-array-zero', [offer({ price: 0 }), offer({ price: 9.99 })], 'pass'],
+      ['missing-price', offer({}), 'fail'],
+      ['null-price', offer({ price: null }), 'fail'],
+      ['empty-price', offer({ price: '' }), 'fail'],
+      ['false-price', offer({ price: false }), 'fail'],
+      ['nested-empty-price', offer({ priceSpecification: { '@type': 'PriceSpecification', price: '' } }), 'fail'],
+      ['zero-without-currency', offer({ price: 0, priceCurrency: undefined }), 'fail'],
+      ['offers-array-missing-price', [offer({ price: 0 }), offer({})], 'fail'],
+      ['missing-offers', undefined, 'fail'],
+    ];
+    for (const [name, offers, expectedStatus] of productCases) {
+      const product = { '@context': 'https://schema.org', '@type': 'Product', name: 'Example product', offers };
+      const head = `<script type="application/ld+json">${JSON.stringify(product)}</script>`;
+      await checkFixture(name, head, 'jsonld-product-offers', expectedStatus);
+    }
   } finally {
     await rm(tmp, { recursive: true, force: true });
   }

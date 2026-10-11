@@ -33,6 +33,16 @@ function findRobotsDirective(metas) {
   return metas.find(m => (m.name || '').toLowerCase() === 'robots');
 }
 
+function findNoindexMeta(metas) {
+  // Google combines restrictions from every robots/googlebot meta tag.
+  return metas.find(m => {
+    if (!['robots', 'googlebot'].includes((m.name || '').toLowerCase())) return false;
+    // Match whole directives: max-image-preview:none does not block indexing.
+    return (m.content || '').toLowerCase().split(',')
+      .some(value => ['noindex', 'none'].includes(value.trim()));
+  });
+}
+
 // -- rules ----------------------------------------------------------------
 
 export const RULES = [
@@ -154,12 +164,11 @@ export const RULES = [
     category: 'index',
     severity: 'error',
     title: '页面不应包含 noindex（除非有意排除索引）',
-    source: `${D}/crawling-indexing/block-indexing`,
+    source: `${D}/crawling-indexing/robots-meta-tag`,
     check: ({ metas, headers }) => {
-      const meta = findRobotsDirective(metas);
-      const content = (meta?.content || '').toLowerCase();
+      const meta = findNoindexMeta(metas);
       const xrobots = (headers?.['x-robots-tag'] || '').toLowerCase();
-      if (/noindex/.test(content)) return { status: 'fail', message: `<meta name="robots" content="${meta.content}">` };
+      if (meta) return { status: 'fail', message: `<meta name="${meta.name}" content="${meta.content}">` };
       if (/noindex/.test(xrobots)) return { status: 'fail', message: `X-Robots-Tag: ${headers['x-robots-tag']}` };
       return { status: 'pass' };
     },
@@ -500,7 +509,12 @@ export const RULES = [
       const broken = products.filter(p => {
         const offers = Array.isArray(p.offers) ? p.offers : (p.offers ? [p.offers] : []);
         if (!offers.length) return true;
-        return offers.some(o => !(o.price || o.priceSpecification?.price) || !o.priceCurrency);
+        return offers.some(o => {
+          // A numeric zero is a valid free offer, unlike the other falsy values.
+          const hasPrice = [o.price, o.priceSpecification?.price]
+            .some(price => price === 0 || Boolean(price));
+          return !hasPrice || !o.priceCurrency;
+        });
       });
       return broken.length
         ? { status: 'fail', message: `${broken.length}/${products.length} 个 Product 缺少 price/priceCurrency` }
