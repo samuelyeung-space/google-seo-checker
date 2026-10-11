@@ -7,6 +7,12 @@
 
 [English quick start](./README.en.md) · 中文
 
+## 浏览器直接试用
+
+[打开 HTML SEO Preflight](https://seo-html-preflight.yangyangmathematics.chatgpt.site)，粘贴一页构建后的 HTML，或加载明确标记的虚构示例。不需要账号或安装；在浏览器中运行相同的本地文件检查规则，输入不上传。可导出 Markdown / JSON 报告。
+
+界面和规则显示标题为英文，原始详细消息仍为中文。这个入口不抓网站、不执行页面 JavaScript；缺少 URL、HTTP、robots.txt 或 sitemap 数据的检查保持跳过。规则来源可查，结果不代表 Google 认可或排名保证。
+
 ## 从源码立即试用
 
 需要 Node.js ≥ 18 和 Git；本地示例不需要账号或运行时依赖。当前先使用源码路径；验证 npm 包正式发布后再补包安装入口。
