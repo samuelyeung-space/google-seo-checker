@@ -10,9 +10,9 @@ English · [中文](./README.md)
 
 ## Try in your browser
 
-[Open HTML SEO Preflight](https://seo-html-preflight.yangyangmathematics.chatgpt.site) and paste one built HTML page, or load the labelled fictional example. No account or installation is needed. The same local-file inspection rules run in your browser; your input is not uploaded. Export a Markdown or JSON review report.
+[Open HTML SEO Preflight](https://seo-html-preflight.yangyangmathematics.chatgpt.site) and paste one built HTML page, or select one local UTF-8 `.html` / `.htm` build file. No account or installation is needed. The file is read only in your browser and passed to the same local inspection rules; it is not uploaded. Export a Markdown or JSON review report.
 
-The interface and display titles are English; original detailed rule messages remain Chinese. This trial does not fetch a site or execute page JavaScript. Checks requiring unavailable URL, HTTP, robots.txt or sitemap data remain skipped. Source links support review; results are not Google approval or a ranking guarantee.
+A selected file is limited to 1 MiB. Empty, non-HTML, invalid UTF-8 and oversized inputs are rejected, and a stale file read cannot overwrite newer input. The interface and display titles are English; original detailed rule messages remain Chinese. This trial does not fetch a site or execute page JavaScript. Checks requiring unavailable URL, HTTP, robots.txt or sitemap data remain skipped. Source links support review; results are not Google approval or a ranking guarantee.
 
 ## Try the checker from source
 
