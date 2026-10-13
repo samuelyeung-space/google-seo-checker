@@ -9,9 +9,9 @@
 
 ## 浏览器直接试用
 
-[打开 HTML SEO Preflight](https://seo-html-preflight.yangyangmathematics.chatgpt.site)，粘贴一页构建后的 HTML，或加载明确标记的虚构示例。不需要账号或安装；在浏览器中运行相同的本地文件检查规则，输入不上传。可导出 Markdown / JSON 报告。
+[打开 HTML SEO Preflight](https://seo-html-preflight.yangyangmathematics.chatgpt.site)，粘贴一页构建后的 HTML，或直接选择一个本地 UTF-8 `.html` / `.htm` 构建文件。不需要账号或安装；文件只在当前浏览器中读取并交给相同的本地检查规则，不会上传。可导出 Markdown / JSON 报告。
 
-界面和规则显示标题为英文，原始详细消息仍为中文。这个入口不抓网站、不执行页面 JavaScript；缺少 URL、HTTP、robots.txt 或 sitemap 数据的检查保持跳过。规则来源可查，结果不代表 Google 认可或排名保证。
+单个文件上限 1 MiB；空文件、非 HTML、无效 UTF-8 和超限输入会明确拒绝，较早的异步读取不会覆盖后来输入。界面和规则显示标题为英文，原始详细消息仍为中文。这个入口不抓网站、不执行页面 JavaScript；缺少 URL、HTTP、robots.txt 或 sitemap 数据的检查保持跳过。规则来源可查，结果不代表 Google 认可或排名保证。
 
 ## 从源码立即试用
 
