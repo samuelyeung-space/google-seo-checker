@@ -1,0 +1,79 @@
+name: Rule feedback or missing check
+description: Report a reproducible rule result or suggest a source-linked check.
+title: "[Rule feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying the checker. English or Chinese reports are welcome.
+        Please check existing issues and pull requests before submitting.
+        Share only a minimal fictional or anonymised example you have permission to publish. Do not include credentials, customer or student data, or private URLs.
+        Source links help review a rule; they do not make every project heuristic an official Google requirement.
+  - type: dropdown
+    id: feedback_kind
+    attributes:
+      label: What would you like reviewed?
+      options:
+        - An existing check reports an incorrect result
+        - A useful check is missing
+        - A source link or explanation needs correction
+        - A skipped check is unclear
+    validations:
+      required: true
+  - type: dropdown
+    id: entry_point
+    attributes:
+      label: How did you use the checker?
+      options:
+        - Browser trial
+        - CLI with a local HTML file
+        - CLI with a public URL
+        - JavaScript library
+        - Other (describe below)
+    validations:
+      required: true
+  - type: input
+    id: rule_ids
+    attributes:
+      label: Rule ID(s), if known
+      description: Copy the ID from the finding or exported report. Leave blank for a new check.
+      placeholder: "Example: title-present or jsonld-product-offers"
+  - type: input
+    id: source_revision
+    attributes:
+      label: Version, source revision or trial date
+      description: If known, include a commit SHA or installed version. For the browser trial, its Source provenance link or the date used is useful.
+      placeholder: "Commit SHA, version, or YYYY-MM-DD"
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal example and steps
+      description: Include the smallest shareable HTML or reproduction steps. For CLI use, add the command and Node version. Original Chinese output is fine. Do not attach a full private page.
+      placeholder: "A short fictional HTML snippet, followed by how you ran the check."
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: observed_expected
+    attributes:
+      label: Observed result and expected behaviour
+      description: Include the status and message you saw, then explain what should differ and why. For a missing check, describe the condition it should detect. Note whether a noindex or skipped result was intentional.
+      placeholder: |
+        Observed:
+        Expected:
+        Why this matters:
+    validations:
+      required: true
+  - type: input
+    id: google_source
+    attributes:
+      label: Relevant official Google reference, if available
+      description: Link the official documentation supporting the change. If this is a project heuristic or you have not found a source, say so in the explanation instead of presenting it as a requirement.
+      placeholder: "https://developers.google.com/search/docs/..."
+  - type: checkboxes
+    id: shareable_example
+    attributes:
+      label: Public example confirmation
+      options:
+        - label: I have removed credentials, private URLs and customer or student data from this report, and I have permission to publish the remaining example.
+          required: true
