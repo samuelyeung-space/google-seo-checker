@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // SEO checker CLI.
 //
-//   node scripts/seo-checker/cli.mjs <url-or-file> [options]
+//   node cli.mjs <url-or-file> [options]
 //
 // Options:
 //   --json              Emit JSON to stdout (machine-readable)
@@ -35,8 +35,8 @@ function usage() {
   console.log(`SEO Checker — built from Google Search docs
 
 Usage:
-  node scripts/seo-checker/cli.mjs <url-or-file> [options]
-  npm run seo:check -- <url-or-file> [options]
+  node cli.mjs <url-or-file> [options]
+  npm run check -- <url-or-file> [options]
 
 Options:
   --json              Output JSON instead of human report
