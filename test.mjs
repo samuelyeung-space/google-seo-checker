@@ -6,7 +6,9 @@
 
 import { check } from './run.mjs';
 import { RULES, CATEGORIES } from './rules.mjs';
-import { writeFile, mkdtemp, rm } from 'node:fs/promises';
+import { readFile, writeFile, mkdtemp, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -85,6 +87,20 @@ async function main() {
   } finally {
     await rm(tmp, { recursive: true, force: true });
   }
+
+  console.log('\n4. CLI help advertises usable source commands');
+  const help = spawnSync(process.execPath, ['cli.mjs', '--help'], { cwd: __dirname, encoding: 'utf8' });
+  assert(help.status === 0, '--help exits successfully');
+  const usage = help.stdout.match(/Usage:\s*\n([\s\S]*?)\n\s*\n/)?.[1] || '';
+  const nodeCommand = usage.match(/^\s*node\s+(\S+\.mjs)\s+<url-or-file>/m);
+  assert(Boolean(nodeCommand), 'help contains a source Node command');
+  assert(existsSync(path.resolve(__dirname, nodeCommand[1])), `advertised Node entry exists: ${nodeCommand[1]}`);
+  const sourceHelp = spawnSync(process.execPath, [nodeCommand[1], '--help'], { cwd: __dirname, encoding: 'utf8' });
+  assert(sourceHelp.status === 0, 'advertised Node entry runs with --help');
+  const npmCommand = usage.match(/^\s*npm run\s+(\S+)\s+--\s+<url-or-file>/m);
+  assert(Boolean(npmCommand), 'help contains an npm script command');
+  const packageJson = JSON.parse(await readFile(path.join(__dirname, 'package.json'), 'utf8'));
+  assert(typeof packageJson.scripts?.[npmCommand[1]] === 'string', `advertised npm script exists: ${npmCommand[1]}`);
 
   console.log('\nAll tests passed.');
 }
