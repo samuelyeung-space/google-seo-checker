@@ -21,7 +21,7 @@ for the local example. Use this source checkout; npm installation will be
 documented after a verified package release.
 
 ```bash
-git clone https://github.com/yangyangnovelist-hub/google-seo-checker.git
+git clone https://github.com/samuelyeung-space/google-seo-checker.git
 cd google-seo-checker
 node cli.mjs ./examples/quickstart.html --filter=meta,schema --json
 ```
@@ -42,16 +42,15 @@ Local HTML checks do not fetch robots.txt or sitemaps. Public-URL checks make
 network requests; client-rendered content is not executed. See
 [limitations](#limitations-no-marketing-fluff) before interpreting findings.
 
-## Why
+## Where it fits
 
-SEO tooling today is roughly:
+Use this tool when you have one generated HTML document and want a source-linked
+list of potential metadata, canonical, robots or structured-data issues before
+deployment. A local Node.js run needs no account or runtime dependencies.
 
-1. **Lighthouse / PageSpeed** — strong on Core Web Vitals, weak on schema / canonical / robots / spam policies
-2. **Screaming Frog / Ahrefs / Semrush** — commercial, black-box rules, overkill for small projects
-
-Meanwhile the actual ground truth — [developers.google.com/search/docs](https://developers.google.com/search/docs) — is 152 pages most engineers never read end-to-end.
-
-This tool's job: **turn the machine-checkable parts of those 152 pages into if-statements**, each linked back to its source doc.
+The rules are hand-curated heuristics with links to Google Search documentation,
+not an exhaustive or Google-approved validation. A source citation helps you
+review the rule; it does not make every threshold a Google requirement.
 
 ## Install the optional CLI aliases
 
@@ -186,20 +185,18 @@ Then in Claude Code: "audit example.com's SEO" or "what does Google say about ca
 - **Docs are point-in-time** — Google updates aren't auto-synced. Refresh with `npm run fetch-docs -- --force`. CI refreshes monthly.
 - **Rules are hand-curated** — the 65 cover what's machine-checkable. E-E-A-T, helpful content, Core Updates need human judgment.
 
-## How it compares
+## Choose the right check
 
-| | google-seo-checker | Lighthouse | Screaming Frog | Ahrefs |
-|---|---|---|---|---|
-| Price | Free / MIT | Free | $259/yr+ | $99/mo+ |
-| Schema / JSON-LD field-level | ✅ 10 rules | ⚠️ basic | ✅ | ⚠️ |
-| robots.txt + sitemap | ✅ | ❌ | ✅ | ✅ |
-| Spam policies (keyword stuffing / hidden text / doorway) | ✅ 3 rules | ❌ | ⚠️ | ⚠️ |
-| Real CWV (LCP/CLS/INP) | ❌ (use Lighthouse) | ✅ | ⚠️ | ✅ |
-| Whole-site crawl | ❌ | ❌ | ✅ | ✅ |
-| Rule-level source citations | ✅ every rule | ❌ | ❌ | ❌ |
-| Lookup Google docs | ✅ | ❌ | ❌ | ❌ |
+| Task | This tool's boundary |
+|---|---|
+| Review one built HTML file | Local CLI or browser-local trial; source links accompany findings |
+| Check content generated only by JavaScript | Not supported; inspect a rendered page separately |
+| Crawl a whole site | Not supported; use a dedicated crawler |
+| Measure real Core Web Vitals | Not supported; use Lighthouse, CrUX or another suitable measurement tool |
+| Confirm indexing or ranking | Not established by this report; inspect the actual search outcome separately |
 
-Niche: **single-page, transparent rules, CI-friendly**. Pair with Lighthouse (perf) + Search Console (gaps).
+This is a small pre-deployment review layer. It is not a replacement for
+whole-site auditing, field performance measurement or Search Console.
 
 ## Contributing
 
