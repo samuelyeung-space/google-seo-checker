@@ -18,7 +18,7 @@
 需要 Node.js ≥ 18 和 Git；本地示例不需要账号或运行时依赖。当前先使用源码路径；验证 npm 包正式发布后再补包安装入口。
 
 ```bash
-git clone https://github.com/yangyangnovelist-hub/google-seo-checker.git
+git clone https://github.com/samuelyeung-space/google-seo-checker.git
 cd google-seo-checker
 node cli.mjs ./examples/quickstart.html --filter=meta,schema --json
 ```
@@ -34,16 +34,11 @@ node cli.mjs https://example.com/ --json
 
 本地 HTML 不抓 robots.txt / sitemap；公开 URL 会发网络请求。工具不执行页面 JavaScript，也不做全站抓取。
 
-## 为什么有这个
+## 适合什么任务
 
-市面上 SEO 工具两类：
+手里已有一页构建后的 HTML，想在部署前查看元数据、canonical、robots 或结构化数据的潜在问题，并沿规则来源逐项复核时，可以使用本工具。本地 Node.js 检查不需要账号或运行时依赖。
 
-1. **Lighthouse / PageSpeed** — 强在 CWV，弱在 schema / canonical / robots / 反垃圾政策
-2. **Screaming Frog / Ahrefs / Semrush** — 商业付费，规则黑箱，对小项目过重
-
-而真正的 ground truth 是 [developers.google.com/search/docs](https://developers.google.com/search/docs) 这 152 篇 — 大多数程序员从没完整读过。
-
-这个工具做的事：**把那 152 篇里能机检的部分写成 if 语句**，每条规则都带出处链接。
+规则是人工编写的启发式检查，并附 Google Search 文档链接，不是完整或 Google 认可的校验。来源链接便于复核，不表示每个阈值都是 Google 的硬性要求。
 
 ## 安装可选命令别名
 
@@ -181,20 +176,17 @@ ln -s "$(npm root -g)/google-seo-checker"/* ~/.claude/skills/google-seo-checker/
 - **docs 是时刻快照** — Google 改 docs 不会自动同步。`npm run fetch-docs -- --force` 重抓；CI 每月自动刷
 - **规则不是从 docs 自动抽** — 65 条是手挑的"能机检的部分"。E-E-A-T、helpful content 这类质性判断没法变 if 语句
 
-## 跟其他工具的关系
+## 按任务选择检查方式
 
-| | google-seo-checker | Lighthouse | Screaming Frog | Ahrefs |
-|---|---|---|---|---|
-| 价格 | 免费 / MIT | 免费 | $259/年起 | $99/月起 |
-| Schema / JSON-LD 字段 | ✅ 10 条 | ⚠️ 基础 | ✅ | ⚠️ |
-| robots.txt + sitemap | ✅ | ❌ | ✅ | ✅ |
-| 反垃圾政策（关键字堆砌 / 隐藏文字 / doorway） | ✅ 3 条 | ❌ | ⚠️ | ⚠️ |
-| 真 CWV (LCP/CLS/INP) | ❌（用 Lighthouse） | ✅ | ⚠️ | ✅ |
-| 全站 crawl | ❌ | ❌ | ✅ | ✅ |
-| 规则源出处 | ✅ 每条带 link | ❌ | ❌ | ❌ |
-| 反查 Google docs | ✅ | ❌ | ❌ | ❌ |
+| 任务 | 本工具的边界 |
+|---|---|
+| 复核一页构建后的 HTML | 使用本地 CLI 或浏览器试用；每项结果附规则来源 |
+| 检查仅由 JavaScript 生成的内容 | 不支持，需要另外检查渲染后的页面 |
+| 全站抓取 | 不支持，需要专门的爬虫 |
+| 测量真实 Core Web Vitals | 不支持，使用 Lighthouse、CrUX 等测量工具 |
+| 确认收录或排名 | 本报告不能证明，需要单独检查实际搜索结果 |
 
-定位：**单页面、规则透明、CI 友好** 的补充层。配合 Lighthouse（性能）+ Search Console（漏点）一起用。
+定位是部署前的小型复核层，不替代全站审计、真实性能测量或 Search Console。
 
 ## 贡献
 
