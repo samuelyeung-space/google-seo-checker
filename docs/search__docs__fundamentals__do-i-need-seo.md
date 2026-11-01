@@ -19,7 +19,7 @@ path: /search/docs/fundamentals/do-i-need-seo
 
 # 您需要 SEO 吗？
 
-SEO 是“Search Engine Optimization”（搜索引擎优化）或“Search Engine Optimizer”（搜索引擎优化服务商）的首字母缩写。聘用 SEO 是一项重大决定，这有可能改善您的网站并节省时间，但也存在破坏网站和声誉受损的风险。在调研聘用 SEO 带来的潜在益处的同时，也请务必评估，如果 SEO 不负责，可能给您的网站带来哪些损害。很多 SEO 及其他代理机构和顾问会为网站所有者提供实用的服务，包括：
+与许多商业活动一样，有时聘请专业人士会有所帮助。决定聘请公司或专业人员来为您的网站进行[搜索引擎优化 (SEO)](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn) 是一项重大决策。虽然这有望提升网站在 Google 搜索中的曝光度并为您节省宝贵时间，但若处理不当，也可能面临网站受损及声誉受挫的风险。请务必深入了解聘用 SEO 可能带来的潜在益处，以及不负责任的 SEO 可能会给您的网站造成的损害。很多 SEO 及其他代理机构和顾问会为网站所有者提供实用的服务，包括：
 
 - 网站内容或结构审核
 - 网站开发技术建议：如托管、重定向、错误页、JavaScript 的使用
@@ -27,196 +27,73 @@ SEO 是“Search Engine Optimization”（搜索引擎优化）或“Search Engi
 - 线上业务发展活动管理
 - 关键字研究
 - SEO 培训
-- 有关特定市场和地理区域的专业知识。
+- 有关特定市场和地理位置的专业知识
+- 针对生成式 AI 进行优化
 
-通过 Google 刊登广告对您的网站在我们的搜索结果中的显示情况没有任何影响。 Google 绝不会针对将网站纳入我们的搜索结果或改变网站在搜索结果中的排名而收费，网站显示在我们的自然搜索结果中无需支付任何费用。[Search Console](https://search.google.com/search-console?hl=zh-cn)、官方的 [Google 搜索中心博客](https://developers.google.com/search/blog?hl=zh-cn)和我们的[论坛](https://support.google.com/webmasters/community?hl=zh-cn)等资源可为您提供大量关于如何针对自然搜索优化网站的信息。
+通过 Google 刊登广告对您的网站在我们的搜索结果中的显示情况没有任何影响。 Google 绝不会针对将网站纳入我们的搜索结果或改变网站在搜索结果中的排名而收费，网站显示在我们的自然搜索结果中无需支付任何费用。[Search Console](https://search.google.com/search-console?hl=zh-cn)、官方的 [Google 搜索中心博客](https://developers.google.com/search/blog?hl=zh-cn)以及我们的[论坛](https://support.google.com/webmasters/community?hl=zh-cn)等资源，都能为您提供极其详尽的信息，助您了解如何针对 Google 的非广告搜索结果（通常称为“自然搜索”）优化您的网站。
 
-## SEO 使用入门
+## 确定是否需要聘请 SEO 人员
 
-如果您经营的是小型本地商家，您应该可以自己完成大部分工作。以下是一些很好的资源：
+如果您经营的是小型本地商家，您应该可以自己完成大部分工作。我们建议您从阅读 [SEO 入门指南](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn)开始。这份指南非常实用，不仅能帮您提升网站的 SEO 表现，还详细介绍了 SEO 人员能为您提供的各项服务。如果您最终决定聘请专业人士来代劳，了解这些技术也大有裨益。这样一来，如果 SEO 人员想要使用某些不被推荐、甚至是被严令禁止的技术，您就能及时察觉。
 
-- 观看我们的[视频系列](https://www.youtube.com/playlist?list=PLKoqnv2vTMUOHPb5IJIn-7egNRmsvbPIE&hl=zh-cn)，了解如何提高商家在线影响力。
-- [搜索要素](https://developers.google.com/search/docs/essentials?hl=zh-cn)
-- [Google 如何抓取网页、将网页编入索引和呈现网页](https://developers.google.com/search/docs/fundamentals/how-search-works?hl=zh-cn)。
-- [SEO 入门指南](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn)描述了 SEO 将为您做些什么。如果您聘用了专业人士为您打点一切，则无需详细了解此指南，但是，熟悉这些技术很有帮助，这样您就可以了解，SEO 是否想要使用某种不受推荐甚至是强烈禁止的技术。
+如果您觉得仍需寻求专业人士的帮助，请继续阅读有关聘用 SEO 人员的内容。
 
-请注意，您需要一段时间才能看到效果：通常从您开始进行更改后的四个月至一年后，才能看到其优势。
+## 聘请 SEO 人员时的注意事项
 
-如果您觉得仍然需要来自专业人士的额外帮助，请继续阅读以了解如何选择 SEO。
+与许多商业活动一样，有时聘请专业人士会有所帮助。例如，打算重新设计网站（越早越好）或计划启动新网站时是聘用 SEO 人员的最佳时机。这样，您和 SEO 人员就能确保整个网站自下而上都便于搜索引擎进行处理。此外，优秀的 SEO 人员还能帮助您改进现有网站。
 
-## 选择 SEO
+如果您正考虑聘请他人为您的网站提供 SEO 服务，请考虑以下事项：
 
-如果您考虑聘用 SEO，那么越早聘用越好。打算重新设计网站或启动新网站时是聘用 SEO 的最佳时机。这样，您和您的 SEO 就能确保整个网站自下而上都便于搜索引擎进行处理了。此外，优秀的 SEO 还能帮助您改进现有网站。
-
-1. **致力于实施建议的更改。**落实 SEO 建议的更改需要时间和精力；如果您不打算花时间进行这些更改，那么不值得聘用专业人士。
-2. **面试可能胜任的 SEO。**以下是可以询问 SEO 的一些实用问题：
+- **面试潜在的 SEO。**以下是可以询问 SEO 的一些实用问题：
 
   - 你们能否提供以前的案例供我参考，或提供一些成功案例？
-  - 您是否遵循了 Google Search Essentials 指南？
-  - 在随机搜索业务之外，您是否还提供任何在线营销或顾问服务？
+  - 您是否遵循了 [Google 搜索核心指南](https://developers.google.com/search/docs/essentials?hl=zh-cn)（以前称为“网站站长指南”）？
   - 你们预计会有什么样的成果，需要多久时间？你们如何评估成果？
   - 对于我所在的行业，你们有哪些经验？
   - 对于我所在的国家/地区和城市，你们有哪些经验？
   - 对于开发国际性网站，你们有哪些经验？
-  - 你们最重要的 SEO 技术是什么？
   - 你们在这个领域服务的时间有多久？
-  - 我将来要如何与您沟通？你们是否会告知我将对我的网站做出的所有更改，并提供与建议以及建议背后的原因相关的详细信息？
-  - 看看这个 SEO 是否对您和您的业务感兴趣。如果不感兴趣，则寻找其他感兴趣的 SEO。您的 SEO 应当询问以下问题：
+  - 我将来要如何与您沟通？你们是否会告知我将对我的网站做出的所有更改，并针对你们的建议及其背后的原因提供详细说明？
+  - 看看这个 SEO 是否对您和您的业务感兴趣。如果他们不感兴趣，则另寻他人。优秀的 SEO 人员应当主动了解您的业务：您的过人之处在哪里、竞争对手是谁、搜索结果能如何助您一臂之力，以及客户是如何找到您的。
 
-    - 是什么让您的业务或服务对客户来说独特而有价值？
-    - 您的客户是谁？
-    - 您的盈利模式是什么，以及搜索结果对此有何帮助？
-    - 您使用了其他哪些广告渠道？
-    - 您有哪些竞争对手？
+- **查看 SEO 的商业参考资料。**询问以往的客户是否认为该 SEO 提供了有用的服务、是否易于共事，并产生了积极的结果。
+- **如果 SEO 人员提出要为您进行 SEO 审核，请务必仔细考虑其中涉及的内容，并且仅授予对 Search Console 的读取权限（在此阶段，请勿授予写入权限）。** SEO 审核应可提供实事求是的网站改进效果预估，以及估计要涉及的工作。如果他们向您保证，他们的更改会让您的网站在搜索结果中排名第一，请不要相信并寻找其他 SEO 人员。
+如果 SEO 使用了第三方工具，请注意，Google 不会评估或认可第三方 SEO 工具，并且这些工具无法访问 Google 的内部排名数据。请谨慎使用声称已获得 Google 搜索“认可”或“批准”的工具。
 
-3. **查看 SEO 的商业参考资料。**询问以往的客户是否认为该 SEO 提供了有用的服务、是否合作轻松，并产生了积极的结果。
-4. **要求该 SEO 对您的网站进行技术和搜索审核**，了解他们认为需要做什么工作，为什么要这么做，以及预期的结果应该是什么。您可能需要为此付费。您可能必须在 Search Console 中为他们授予对您网站的只读访问权限。 （在此阶段，请勿授予他们写入访问权限）。可能胜任的 SEO 应可提供实事求是的网站改进效果预估，以及估计要涉及的工作。如果该 SEO 向您保证其更改会让您的网站在搜索结果中排名第一，请勿轻信，另寻其他 SEO。
-5. **决定是否要聘用该 SEO。**
+- **审视 SEO 提供的建议及其使用的工具。**在根据第三方工具的审核结果对网站进行重大调整之前，请务必对照 [Google 搜索官方指南](https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=zh-cn)核实其建议。对于您听到的任何说法或建议，请保持批判性思考，并在此基础上做出明智的决策。
 
-### 注意事项
-
-虽然 SEO 可为客户提供有价值的服务，但也有一些不道德的 SEO 采用过于激进的市场营销手段，并试图暗箱操纵搜索引擎结果，结果损害了这个行业的声誉。如有任何违反[我们的垃圾内容政策](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn)的做法，我们可能会对您的网站在 Google 中的显示情况进行消极调整，甚至还会将网站从我们的索引中移除。
-
-当 SEO 为您的网站提供了一系列建议时，要求他们用可信的来源证实这些建议，比如 Search Console 帮助页面、Google 搜索中心博客文章或是[论坛](https://support.google.com/webmasters/community?hl=zh-cn)中经 Google 认可的回复。
-
-请注意以下事项：
-
-- 一种常见的欺骗手段是创建“影子”域名，使用欺骗性的重定向功能将用户链接到某个网站。这些影子域名通常为那些声称为客户工作的 SEO 所有。但是，如果双方关系恶化，SEO 可能会将该域名指向另外一个网站，甚至指向竞争对手的域名。此时，客户等于付费开发了一个完全由 SEO 所有的竞争网站。
-- 另外一种违禁做法是，在客户网站的某个位置放置充斥着关键字的“门页”。SEO 承诺这种方法会增强网页的相关性，从而可以匹配更多的查询。这种观点根本就是错误的，因为单个网页几乎不可能与大量的关键字都相关，但更大的隐患是这些门页还常常包含指向 SEO 其他客户的隐藏链接。这些门页会将网站的链接流行度分流到 SEO 及它的其他客户那里，其中可能包含一些提供令人厌恶或非法内容的网站。
-- 最后，避免参与[链接操纵](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn#link-spam)，例如从其他网站购买链接以提高排名。这违反了 Google 的垃圾内容政策，可能会导致我们[针对网站的部分或全部内容采取人工处置措施](https://support.google.com/webmasters/answer/9044175?ref_topic=7440006&hl=zh-cn#unnatural-links-to-your-site&zippy=,unnatural-links-to-your-site)，这将对网站排名产生负面影响。
-
-如果您认为 SEO 以某种方式欺骗了您，您可以向我们举报。
-
-在美国，联邦贸易委员会 (FTC) 负责受理有关欺诈性或不正当商业行为的投诉。如需提交投诉，请访问 [https://www.ftc.gov/](https://www.ftc.gov/) 并点击“File a Complaint Online”（在线提交投诉），也可以致电 1-877-FTC-HELP，或将投诉信寄往以下地址：
-
-> Federal Trade Commission
- CRC-240
- Washington, D.C. 20580
-
-如果您投诉的是美国境外的公司，请通过以下网址进行投诉：[https://www.econsumer.gov/](https://www.econsumer.gov/)。
-
-## 实用指南
+  - 他们是否引用了 Google 官方文档来为其建议提供佐证？
+  - 如果他们针对 AI 体验（即所谓的“AEO”或“GEO”服务）提供优化建议，这些建议是否符合 [Google 搜索关于如何针对生成式 AI 功能进行优化的官方指南](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?hl=zh-cn)？
+  - 他们使用的工具是否符合 Google 的指导？
 
 - **对突然向您发送电子邮件的 SEO 公司和网络顾问或代理机构应保持警惕。**
 
 令人吃惊的是，连我们都会收到这类垃圾邮件：
 
 > “尊敬的 google.com：
- 我访问了贵网站，发现大多数主要的搜索引擎和目录都没有将贵公司列入其中…”**
+ 我访问了您的网站，发现大多数主要的搜索引擎和目录都没有将您的网站列入其中…”**
 
-不要轻易相信那些涉及搜索引擎的垃圾邮件，它们就像宣传“夜间燃脂”的减肥药丸和帮助下台的独裁者转移资金的请求一样可疑。
+不要轻易相信那些涉及搜索引擎的垃圾邮件，它们就像宣传“让脂肪在睡眠时燃烧”的减肥药丸和帮助下台的独裁者转移资金的请求一样可疑。
 
--  **没有人可以保证能在 Google 搜索结果中排名第一。**
-
- 如果 SEO 宣称可以保证排名，声称与 Google 有“特殊关系”，或可以优先向 Google 提交您的网站，千万不要相信。Google 从来都没有优先提交一说。实际上，直接[向 Google 提交网站](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl?hl=zh-cn)的唯一方式是通过[网址检查工具](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl?hl=zh-cn#use-the-url-inspection-tool-just-a-few-urls)提交[站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=zh-cn)，或利用 [Google Indexing API](https://developers.google.com/search/apis/indexing-api/v3/quickstart?hl=zh-cn) 提交更具体的内容。您可以自行采取上述任一做法。
-
+- **没有人可以保证能在 Google 搜索结果中排名第一。** 如果 SEO 人员宣称可以保证排名，声称与 Google 有特殊关系，或可以优先向 Google 提交您的网站，千万不要相信。
 - **如果一家公司遮遮掩掩，或不明确说明自己的意图，请多加小心。**
 
-如果有任何不明白之处，应当要求对方解释。如果 SEO 为您制作了一些欺骗性或误导性内容，如门页或“一次性”域名，您的网站可能会从 Google 索引中被彻底移除。归根结底，您要对所雇用公司的全部行为负责，因此，您最好弄清楚他们打算如何“帮助”您。如果 SEO 可以通过 FTP 访问您的服务器，则他们应该乐于向您解释对您的网站所做的所有更改。
+如果有任何不明白之处，应当要求对方解释。如果 SEO 人员以您的名义制作了欺骗性或误导性内容，您的网站可能会被 Google 索引彻底除名。归根结底，您要对所雇用公司的全部行为负责，因此，您最好弄清楚他们打算如何“帮助”您。如果 SEO 人员可以通过 FTP 访问您的服务器，则他们应该乐于向您解释对您的网站所做的所有更改。
 
-- **您完全不必链接到 SEO。**
+- **不要链接到 SEO。**
 
-请远离那些宣传链接流行度方案或将您的网站提交给数千个搜索引擎的 SEO。因为这些做法通常是徒劳无益的，并不会影响您在各大搜索引擎结果中的排名，至少不会产生您期望的正面影响。
+请远离那些宣传链接流行度方案或将您的网站提交给成千上万个搜索引擎的 SEO。因为这些做法通常是徒劳无益的，并不会影响您在各大搜索引擎结果中的排名，至少不会产生您期望的正面影响。
 
-- **请慎重选择。**
+**重要提示：**虽然 SEO 人员能为客户提供极具价值的服务，但一些不道德的从业者却因营销手段过于激进，或使用违反[我们的网络垃圾政策](https://developers.google.com/search/docs/essentials/spam-policies?hl=zh-cn)的技术而给整个行业抹黑。这可能会导致您的网站在 Google 搜索中的呈现效果受到负面调整，甚至导致网站从我们的索引中彻底移除。
 
-在考虑是否要与某 SEO 合作时，您应当对该行业做一些调查。Google 当然可以提供这方面的信息。尽管 Google 不会对具体的公司加以评论，但我们确实遇到了一些自称是 SEO 而其行为却违背了合理的商业行为准则的公司。请务必小心。
+## 报告问题
 
-- **请务必了解资金去向。**
+如果您认为 SEO 以某种方式欺骗了您，您可以向我们举报。
 
-虽然 Google 从未出售搜索结果中的靠前排名，但其他一些搜索引擎会在其常规的网页搜索结果中按点击次数或纳入结果的次数进行收费。一些 SEO 会承诺让您在搜索引擎中居于靠前的位置，但其实是将您放在广告部分而非搜索结果中。还有少数 SEO 甚至会实时更改他们的出价，制造出他们可以“控制”其他搜索引擎并随意进入理想版块的假象。这些伎俩在 Google 是行不通的，因为我们的广告内容已明确标示，并与搜索结果相互独立；但是对于任何 SEO，您一定要问清楚哪些费用用于将您永久性地纳入搜索结果，哪些费用用于短时间的广告宣传。
+在美国，联邦贸易委员会 (FTC) 负责受理有关欺诈性或不正当商业行为的投诉。如需提交投诉，请访问 FTC 网站[在线提交投诉](https://www.ftc.gov/)，或致电 1-877-FTC-HELP。
 
-- **还需要注意哪些事项？**
-
-您可以通过某些迹象判断是否正在与不道德的 SEO 打交道。下面列出的只是其中很少的一部分，因此，只要有任何疑虑，您都应当相信直觉：
-
-  - 拥有影子域名
-  - 在门页上放置指向其他客户的链接
-  - 提议在地址栏出售关键字
-  - 对搜索结果页中出现的实际搜索结果和广告不加区分
-  - 保证排名，但只依靠随意可得的晦涩冗长的关键字词组
-  - 使用多个别名或伪造的 WHOIS 信息
-  - 从“虚假的”搜索引擎、间谍软件或变脸软件获取流量
-  - 自身的域名已从 Google 索引中被移除，或者没有列入 Google 索引中
+如果您投诉的是美国境外的公司，请通过以下网址进行投诉：[https://www.econsumer.gov/](https://www.econsumer.gov/)。
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-18。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-18。"],[],["Hiring an SEO can enhance your site through content and structure review, technical advice, keyword research, and market expertise, but risks exist. When choosing an SEO, interview them thoroughly, check references, and request a site audit. Ensure they follow Google's guidelines and avoid harmful practices like shadow domains or link schemes. Be wary of guarantees of #1 rankings and unsolicited emails. Verify all changes, and report deceptive practices to the FTC or econsumer.gov.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-06-10。

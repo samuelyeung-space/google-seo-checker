@@ -49,7 +49,7 @@ path: /search/docs/specialty/international/localized-versions
 - 备用网页的网址必须是完全限定的网址，包括传输方法 (http/https)，例如：
  `https://example.com/foo`，**而不是**`//example.com/foo` 或 `/foo`
 - 备用网页的网址无需位于同一个网域中。
--  如果您有多个备用网址，分别面向使用相同语言但位于不同语言区域的用户，那么您最好也为使用该语言但地理位置不明的用户提供一个通用网址。例如，如果您为爱尔兰 (`en-ie`)、加拿大 (`en-ca`) 和澳大利亚 (`en-au`) 地区的英语用户提供了特定网址，则为美国、英国和所有其他英语区域的搜索用户提供一个通用英语版 (`en`) 网页。您也可以从您的诸多特定网页中选择一个作为通用网页。
+-  如果您有多个备用网址，分别面向使用相同语言但位于不同语言区域的用户，那么您最好也为使用该语言但地理位置不明的用户提供一个通用网址。例如，如果您为爱尔兰 (`en-IE`)、加拿大 (`en-CA`) 和澳大利亚 (`en-AU`) 地区的英语用户提供了特定网址，则为美国、英国和所有其他英语区域的搜索用户提供一个通用英语版 (`en`) 网页。您也可以从您的诸多特定网页中选择一个作为通用网页。
 - 如果两个网页没有互指，系统将会忽略相关标记。这是为了确保另一网站上的某个用户无法随意通过创建一个标记将该网站指定为您的某个网页的备用版本。
 - 如果您很难为每种语言分别维护一套完整的双向链接，则可在部分网页上省略一些语言；Google 仍会处理那些互指的网页。但是，请务必在新增的语言网页和源语言/主要语言网页之间建立双向链接。例如，如果您最初用法语创建了网站，并采用了 `.fr` 网址，那么当您新增面向墨西哥 (`.mx`) 和西班牙 (`.es`) 的网页后，应该优先将这两个新网页和曝光率很高的 `.fr` 网页双向链接起来，而不是在这两个新增的西班牙语变体网页（`.mx` 和 `.es`）之间建立双向链接。
 - 请考虑为不匹配的语言添加后备网页，尤其是在语言/国家/地区选择器中或是在会自动重定向的首页上。请使用 [`x-default` 值](#xdefault)：
@@ -112,9 +112,9 @@ path: /search/docs/specialty/international/localized-versions
 ```
 <head>
  <title>Widgets, Inc</title>
-  <link rel="alternate" hreflang="en-gb"
+  <link rel="alternate" hreflang="en-GB"
        href="https://en-gb.example.com/page.html" />
-  <link rel="alternate" hreflang="en-us"
+  <link rel="alternate" hreflang="en-US"
        href="https://en-us.example.com/page.html" />
   <link rel="alternate" hreflang="en"
        href="https://en.example.com/page.html" />
@@ -154,7 +154,7 @@ Link: <url1>; rel="alternate"; hreflang="[lang_code_1](#language-codes)", <url2>
 ```
 
 Link: <https://example.com/file.pdf>; rel="alternate"; hreflang="en",
-      <https://de-ch.example.com/file.pdf>; rel="alternate"; hreflang="de-ch",
+      <https://de-ch.example.com/file.pdf>; rel="alternate"; hreflang="de-CH",
       <https://de.example.com/file.pdf>; rel="alternate"; hreflang="de"
 ```
 
@@ -199,7 +199,7 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
                href="https://www.example.de/deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
-               hreflang="de-ch"
+               hreflang="de-CH"
                href="https://www.example.de/schweiz-deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
@@ -214,7 +214,7 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
                href="https://www.example.de/deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
-               hreflang="de-ch"
+               hreflang="de-CH"
                href="https://www.example.de/schweiz-deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
@@ -229,7 +229,7 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
                href="https://www.example.de/deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
-               hreflang="de-ch"
+               hreflang="de-CH"
                href="https://www.example.de/schweiz-deutsch/page.html"/>
     <xhtml:link
                rel="alternate"
@@ -241,15 +241,15 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
 
 ## 受支持的语言和区域代码
 
-`hreflang` 属性的值由一个或两个可选的值组成，各个值之间用短划线分隔。例如 `en-US`。`hreflang` 属性的第一个代码是语言代码（采用 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 格式），后跟可选的第二个代码（采用 [ISO 3166-1 Alpha 2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 格式），表示备用网址的区域代码。 系统仅支持 ISO 639-1 中列出的语言代码和 ISO 3166-1 Alpha 2 中列出的地区代码；不支持未在这些标准中列出的其他代码，例如 es-419。
+`hreflang` 属性的值由一个或两个可选的值组成，各个值之间用短划线分隔。例如 `en-US`。`hreflang` 属性的第一个代码是语言代码（采用 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 格式），后跟可选的第二个代码（采用 [ISO 3166-1 Alpha 2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 格式），表示备用网址的区域代码。 系统仅支持 ISO 639-1 中列出的语言代码和 ISO 3166-1 Alpha 2 中列出的地区代码；不支持未在这些标准中列出的其他代码，例如 es-419。 `hreflang` 值不区分大小写；Google 接受小写和大写代码，但采用大写格式的区域代码（例如 `en-GB`）符合 ISO 3166-1 Alpha 2 惯例。
 
 **警告**：您不能单独指定国家/地区代码。第一个代码代表语言，Google 不会自动从国家/地区代码中推出语言。
 
  要定位到比利时的其他语言用户，您可以使用以下语言和地区代码：
 
--  **良好（面向比利时用户的德语内容）**：`de-be`
--  **合适（面向比利时用户的荷兰语内容）**：`nl-be`
--  **合适（面向比利时用户的法语内容）**：`fr-be`
+-  **良好（面向比利时用户的德语内容）**：`de-BE`
+-  **合适（面向比利时用户的荷兰语内容）**：`nl-BE`
+-  **合适（面向比利时用户的法语内容）**：`fr-BE`
 -  **不合适，因为第一个代码是语言代码（`be` 是白俄罗斯语代码）**：`be`
 
 要简化标记，您可以单独指定语言代码。例如：
@@ -274,9 +274,9 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
  如需实现 `hreflang="x-default"` 注解，请再向现有的 `hreflang` 注解添加一个 `link` 标记，并将 `href` 属性设置为您希望用户到达的网址（如果您的网站不支持用户的语言）。例如，HTML 实现可能如下所示：
 
 ```
-<link rel="alternate" href="https://example.com/en-gb" hreflang="en-gb" />
-<link rel="alternate" href="https://example.com/en-us" hreflang="en-us" />
-<link rel="alternate" href="https://example.com/en-au" hreflang="en-au" />
+<link rel="alternate" href="https://example.com/en-gb" hreflang="en-GB" />
+<link rel="alternate" href="https://example.com/en-us" hreflang="en-US" />
+<link rel="alternate" href="https://example.com/en-au" hreflang="en-AU" />
 **<link rel="alternate" href="https://example.com/country-selector" hreflang="x-default" />**
 ```
 
@@ -289,7 +289,7 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
 -  **缺少返回链接**：如果网页 X 链接到网页 Y，那么网页 Y 必须要链接回网页 X。如果所有使用 `hreflang` 注解的网页并未全部满足这项要求，系统可能会忽略或无法正确解译这些注解。例如，看看 `https://de.example.com/index.html` 上的这个链接：
 
 ```
-<link rel="alternate" hreflang="en-gb" href="https://en-gb.example.com/index.html" />
+<link rel="alternate" hreflang="en-GB" href="https://en-gb.example.com/index.html" />
 ```
 
  您还必须在 `https://en-gb.example.com/index.html` 上提供指向该内容 `de` 版本的 `hreflang` 链接：
@@ -310,82 +310,4 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2026-04-27。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-27。"],[],["To help Google direct users to the correct language/region version of your pages, use `hreflang` attributes. Implement these via HTML `\u003clink\u003e` tags, HTTP headers, or XML sitemaps, ensuring bidirectional linking among all variants. Use ISO codes for language (639-1) and region (3166-1 Alpha 2) and provide an `x-default` for unmatched languages. Verify all pages must link to all of the variants including themselves, and use valid, fully-qualified URLs. Use debugging tools to maintain `hreflang` tags.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-23。

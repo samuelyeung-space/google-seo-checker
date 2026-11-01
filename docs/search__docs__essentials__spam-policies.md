@@ -19,7 +19,7 @@ path: /search/docs/essentials/spam-policies
 
 # 适用于 Google 网页搜索的垃圾内容政策
 
- 在 Google 搜索的背景下，网络垃圾是指用于欺骗用户或操纵我们的搜索系统以获得较高排名的技术。我们的网络垃圾政策有助于保护用户的安全，并提升搜索结果的质量。要想让内容能够显示在 Google 网页搜索结果（网页、图片、视频、新闻内容或 Google 在网络上发现的其他内容）中，内容不得违反 [Google 搜索的总体政策](https://support.google.com/websearch/answer/10622781?hl=zh-cn)或本页列出的网络垃圾政策。这些政策适用于所有网页搜索结果，包括 Google 自有资源中的搜索结果。
+ 在 Google 搜索的语境下，网络垃圾是指旨在欺骗用户或通过操纵我们的搜索系统来使内容获得突出展示的技术。这包括试图操纵搜索系统以提升内容排名，或试图干扰 Google 搜索中生成式 AI 的回答。我们的网络垃圾政策有助于保护用户的安全，并提升搜索结果的质量。要想让内容能够显示在 Google 网页搜索结果中，内容（网页、图片、视频、新闻内容或 Google 在网络上发现的其他内容）不得违反 [Google 搜索的总体政策](https://support.google.com/websearch/answer/10622781?hl=zh-cn)或本页列出的网络垃圾政策。这些政策适用于所有网页搜索结果，包括 Google 自有资源中的搜索结果。
 
  除了通过自动化系统检测违反政策的做法以外，我们也会根据需要执行人工审核，进而采取[人工处置措施](https://support.google.com/webmasters/answer/9044175?hl=zh-cn)。 违反我们政策的网站可能会在搜索结果中排名较低，或者完全不会显示在搜索结果中。
 
@@ -132,7 +132,7 @@ path: /search/docs/essentials/spam-policies
 
 ## 恶意行为
 
- 恶意行为会导致用户预期与实际结果不符，从而带来负面和欺骗性的用户体验，或损害用户安全或隐私。
+ 恶意行为会导致用户预期与实际结果不符，从而导致负面且具有欺骗性的用户体验，或者损害用户安全或隐私。
 
  以下是恶意行为的一些常见示例：
 
@@ -170,31 +170,107 @@ path: /search/docs/essentials/spam-policies
 - 复制其他网站的内容 Feed，而没有给用户带来任何独特的好处
 - 专门嵌入或汇编来自其他网站的视频、图片等媒体内容，而不向用户提供实质性附加值
 
-## 滥用网站声誉
+## 网站声誉政策
 
- 滥用网站声誉是一种策略，具体做法是在托管网站上发布第三方内容，主要是为了利用托管网站已建立的排名衡量因素（主要通过该托管网站的第一方内容获得）。此策略的目标是让该内容的排名高于其本身能获得的排名。
+ 网站声誉政策适用于在托管网站上发布第三方内容，主要是为了利用托管网站已建立的排名衡量因素（主要通过该托管网站的第一方内容获得）的情况。此策略的目标是让该内容的排名高于其本身能获得的排名。 我们已对[政策做出了调整](https://developers.google.com/search/blog/2026/08/update-site-reputation-policy?hl=zh-cn)，使其适用于[欧洲经济区](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:European_Economic_Area_(EEA)) (EEA)。
 
 *第三方内容*是指由与信誉良好的托管网站分开的实体创建的内容。独立实体的示例包括该网站的用户、自由职业者、白标服务，以及由非托管网站直接雇用的人员所创建的内容。
 
- 单纯使用第三方内容并不违反滥用网站声誉政策；只有在托管网站上发布第三方内容，主要是为了利用该托管网站已建立的排名信号时，才会违反此政策。滥用网站声誉的示例包括但不限于：
+ 单纯使用第三方内容并不违反网站声誉政策；只有在托管网站上发布第三方内容，主要是为了利用该托管网站已建立的排名衡量因素时，才会违反此政策。
+
+ 不符合网站声誉政策的示例包括但不限于：
 
 - 某个教育网站托管了一个网页，专门介绍由第三方撰写的发薪日贷款赞助评论，并将同一网页分发给网络上的其他网站
-- 某个医疗网站托管了关于“最佳赌场”的第三方广告页面，这一页面出乎访问者意料之外。并且，根据该网站的既定排名机制，该广告页面被特意放置在该网站上，旨在获取更佳的搜索排名。
-- 某个影评网站托管了一些第三方网页，这些网页中的内容会让访问影评网站的用户感到困惑（例如“如何在社交媒体网站上购买关注者”“最佳算命师网站”以及“最佳论文写作服务”）
-- 某个新闻网站托管了由第三方白标服务提供的优惠券，而将这些优惠券发布在新闻网站上的主要原因是利用该新闻网站的声誉
-- 一个已成熟的第一方网站拓展到一个新领域，主要使用自由职业者提供的内容，因为这样的内容在该第一方网站上会比在其他地方获得更好的排名
+- 某个医疗网站托管了关于“最佳赌场”的低质量第三方广告页面，该页面不仅与网站内容脱节，而且纯粹是想利用该网站已有的排名衡量因素来投机取巧，从而在搜索结果中获得更好的排名。
 
- 如果您托管的网页违反了相应政策，请了解如何[解决此问题](https://support.google.com/webmasters/answer/9044175?hl=zh-cn#site-reputation-abuse&zippy=,site-reputation-abuse)。
-
- **不**被视为滥用网站声誉的示例包括：
+ **不**被视为违反网站声誉政策的示例包括：
 
 - 通讯社或新闻稿服务网站
 - 整合了来自其他新闻出版物的新闻内容的新闻出版物
 - 允许用户生成内容的网站，例如论坛网站或评论区
 - 专栏、观点、文章和其他编辑性质的作品
-- 旨在直接向读者分享内容（例如通过在发布内容本身里进行宣传），而不是通过托管内容来操纵搜索排名的第三方内容（例如“软文广告”或“原生广告”类型的页面）
+- 第三方内容（例如“软文广告”或“原生广告”类页面），其目的是直接向读者分享内容（例如通过在发布内容内部进行宣传），而不是为了操纵搜索排名而托管内容
 - 在整个网页中使用联属营销链接，并[适当处理链接](#link-spam)，或在整个网页中嵌入第三方广告单元
-- 直接从商家和其他面向消费者的企业获取的优惠券
+
+ 这些示例并非详尽无遗。在其他一些情况下，我们也不会采取措施。
+
+ Google 通常会假定单个网页（包括新网页）与网域中其他网页的总体质量相符。如果我们检测到您网站的一部分可能不符合此政策，则会对该网站进行人工审核。在此审核过程中，如果发现网站与政策不符，那么网站页面在搜索结果中的显示方式会受到影响，具体影响取决于用户所在的位置。
+
+- **[EEA](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:European_Economic_Area_(EEA)) 以外**：如果发现某个网站不符合此政策，则当相关网页出现在向 EEA 以外的用户显示的搜索结果中时，可能会受到人工处置措施的影响。
+- **在 EEA 境内**：当网页出现在向 EEA 境内用户显示的搜索结果中时，相关网页可能会被归类为与主网域分开，但不会受到人工处置措施的影响。这将使网站的不同部分能够根据自身的质量，彼此独立地获得排名。这能确保系统将内容与同类内容进行横向比较（例如，赌场内容仅与赌场内容竞争排名），从而保持排名标准的一致性，让用户能够获得与其搜索查询最契合的结果。
+
+ 如果您的网站受到此类影响，我们会在“人工处置措施”报告和 Search Console 消息中心通知您。所有网站都有机会[解决此问题](https://support.google.com/webmasters/answer/9044175?hl=zh-cn#site-reputation-abuse&zippy=,site-reputation-abuse)，或通过重新审核请求提出申诉。符合条件的网站在提交重新审核请求后，还可以选择[通过调解解决争议](https://www.cedr.com/mediation-services/schemes/platform-to-business-services/the-google-search-mediation-scheme)。
+
+### 更详细的指导
+
+ 在极少数需要进行人工审核的情况下，我们的总体目标是确定网站相关部分的内容是否在托管网站的充分参与、编辑监督或贡献下制作而成，能否被视为主网站的有机组成部分。由此可以确保网页排名能够真实体现其呈现给用户的方式，以及用户对其内容的理解。
+
+ 此项审核在全球范围内适用，并会综合考量多项客观因素，旨在深入了解托管网域对网页内容实际行使的控制程度。其中可能包括：
+
+- **内容呈现方式**，即内容的平面设计、格式、排版和用户体验功能是否与托管网域保持一致？
+- **内容质量**，即网页上是否存在主网域中并未出现的质量问题，并由此表明该网页偏离了主网域的一贯质量标准？
+- **其标明或暗示的作者身份**，即：是否明确承认对内容拥有所有权或承担责任？是否有迹象表明内容并非由所声称的作者创作？
+- **内容是否以完全相同或几乎完全相同的形式出现在多个其他网站上**，也就是说，完全相同或几乎完全相同的内容是否出现在多个其他网站上？
+
+ 需要注意的是，这些因素中的任何一个都不能单独作为判断网站特定部分是否符合本政策的必要条件或充分条件。根据具体情况，某些因素的影响力可能会超过其他因素，我们也可能需要考量其他证据（例如，网站上的某些页面是否属于旨在操纵搜索排名的第三方营销资料）。以下是一些示例，说明了我们可能会如何处理这些问题：
+
+1.
+
+**不太可能采取处置措施：集成式优惠券特惠板块**
+
+发布商与专业提供商合作，在与主网站不同的 CMS 中托管“优惠券和特惠”板块。该板块位于一个子文件夹下，不仅完全集成到首页中，还整合到了发布商文章所提供的摘要中。这些优惠券会根据该发布商的具体情况，被整理到不同的类别下（例如：特惠、美妆、家电、服装、本地商店），即便其中某些优惠码在其他地方也能找到。
+
+该板块已明确披露其商业宣传性质，并提供了免责声明，确认发布商与合作伙伴共同承担编辑责任（例如，由发布商或其专门的编辑团队与合作伙伴协作提供内容）。该板块中的某些优惠码会与发布商的其他编辑内容或其编写的简报进行交叉引用；此外，这些优惠券和特惠活动经过了充分的甄选，足以证明相关内容是发布商与商业合作伙伴共同投入、精心打造的差异化编辑成果。该板块与主页面或主页面的主要板块（例如“趋势”板块）紧密相连，用户可以轻松前往。如果提供的优惠码或优惠活动出现问题，可以通过页面上易于访问的链接向发布商反馈；这些问题将按照发布商的标准联系流程得到妥善处理。
+
+不太可能采取处置措施：尽管该版块是与第三方合作创建的，但其内容（即对市场上普遍提供的优惠券和特惠信息进行整理而成的资源库）是对发布内容的补充，并已与之融为一体。根据发布商的一般编辑标准，用户会知晓该内容的负责人以及在出现问题时可联系的联系人。
+
+2.
+
+**可能会采取处置措施：未标明作者且未与发布内容融合的联属营销文章**
+
+一家全球知名的商业刊物在其平台上托管了一篇文章，其中包含指向销售 CBD 精油的购物平台的链接。文章既没有标明作者，也没有注明责任编辑，更没有针对内容的商业性质发布任何免责声明。该文章不属于发布内容的任何主题版块，且无法通过主页面或发布内容主题版块的链接或菜单访问。虽然该网页托管在发布商主站的某个版块下，但有证据表明，该特定文章纯粹是在搬运第三方数字市场中介绍此类产品的相同内容。
+
+在这种情况下，在不影响可能适用的任何其他政策的前提下，由于相关内容与发布商的编辑板块无关，且其呈现方式、用户体验功能及质量均与该商业发布内容不符（包括缺乏适当的免责声明或内容商业性质的标记），加之作者身份和责任编辑不明确，甚至存在从其他网站搬运内容的现象，我们很可能会针对在 EEA 以外显示的搜索结果采取措施。
+
+3.
+
+**不太可能采取处置措施：自由职业者撰写的原创联属营销文章**
+
+一家新闻网站拓展业务，开设了一个全新的烹饪版块，其中包含指向杂货店和厨具页面的联属营销链接。这些内容由自由职业者撰写，通过采访国际知名客座大厨制作而成。有证据表明，托管该内容的发布内容履行了编辑监督职责：例如，网站的品牌风格保持一致，明确列出了新闻网站应承担的编辑责任声明，并且署名了该自由职业者。
+
+该自由职业者虽然也向其他发布内容和发布商提供类似内容，但其提供的访谈或食谱选择是专门针对相关新闻网站定制的，即便其中的联属营销链接与出现在其他发布内容中的链接类似或相同。
+
+在这种情况下，即便内容是由也为其他网站供稿的第三方撰写的，但只要它是主要为托管网站及其最终用户创作的原创内容，就不属于违规。作者身份、编辑责任和联属营销链接均有明确标记，且内容的格式和呈现方式与发布商的其他内容保持一致。在这种情况下，我们不太可能采取措施。
+
+### 常见问题解答
+
+#### 在 EEA 境外采取的人工处置措施会影响我的网站在 EEA 境内的排名吗？
+
+不会。在 EEA 以外的国家/地区，涉及网站声誉政策的人工处置措施只会影响向 EEA 以外的用户显示的结果，而不会影响向 EEA 境内的用户显示的结果。网站的一部分内容因违反此政策而在 EEA 以外受到人工处置措施，这一事实不会用作 EEA 内相应内容的排名信号。
+
+对于在 EEA 境外受到人工处置措施影响的内容，您并无义务为其添加 `noindex` 标记；即便未添加该标记，也不会影响该内容在 EEA 内的排名。此类未标记行为也不会被视为试图规避或绕过本政策，亦不属于屡次违规。
+
+#### 我的网站曾有一部分因违反此政策而在 EEA 受到过人工处置措施。现在会怎样？
+
+对于在 EEA 用户的搜索结果中显示的网页，Google 将解除之前根据此政策采取的所有人工处置措施。这意味着，在向 EEA 用户显示的搜索结果中，这些网页将不再被降级或受到任何形式的人工处罚。
+
+今后，这些网页可能会被归类为与主网域分开，并根据其自身质量进行排名，但这一过程并非自动完成。
+
+我们的系统可确保之前根据此政策受到人工处置措施的网页获得公平的排名，不会处于不利地位。在对网页进行排名时，不会将该网页之前曾因违反此政策而受到人工处置措施这一事实用作排名衡量因素。
+
+#### 如果我网站的一部分因不符合此政策而被归类为与主网域分开，会发生什么情况？
+
+这种分类会告知我们的系统，我们通常在全球范围内采用的一项假设——即单个网页（包括新网页）的质量与其所属网域的整体质量是一致的——将不再适用。
+
+这并不意味着网站的独立部分会立即失去主站积累的排名衡量因素。此外，随着时间的推移，我们的排名系统会逐渐学会对网站的这些部分进行独立排名。这可能会导致网站各部分的排名情况发生变化，例如，网站某一部分的网站级信号得到改善，也可能会带动其他部分的排名提升。
+
+系统应用此分类这一事实本身，并不会被用作排名衡量因素。
+
+#### 如果我不同意对网域采取的措施，该怎么办？
+
+对于 EEA 内的网站，我们实施了全新的重新审核请求流程。在此流程下，我们承诺会在短时间内回复请求，并就处理原因提供更详尽的说明。
+
+在 EEA，您还可以使用[替代性争议解决方式](https://www.cedr.com/mediation-services/schemes/platform-to-business-services/the-google-search-mediation-scheme)。
 
 ## 欺骗性重定向
 
@@ -238,7 +314,7 @@ path: /search/docs/essentials/spam-policies
 
 ### 移除个人信息
 
- If we process a significant volume of personal information removals involving a site with [exploitative removal practices](https://support.google.com/websearch/answer/9172218?hl=zh-cn), we demote other content from the site in our results. [We also look to see](https://blog.google/products/search/improving-search-better-protect-people-harassment/?hl=zh-cn) if the same pattern of behavior is happening with other sites and, if so, apply demotions to content on those sites. We may apply similar demotion practices for sites that receive a significant volume of removals of content involving [doxxing content](https://support.google.com/websearch/answer/9673730?hl=zh-cn), [explicit personal imagery created or shared without consent](https://support.google.com/websearch/answer/6302812?hl=zh-cn), or [explicit non-consensual fake content](https://support.google.com/websearch/answer/9116649?hl=zh-cn).
+ 如果我们处理的大量个人信息移除要求涉及某个采用[有偿移除做法](https://support.google.com/websearch/answer/9172218?hl=zh-cn)的网站，我们会降低该网站中其他内容在搜索结果中的排名。[我们也会设法了解](https://blog.google/products/search/improving-search-better-protect-people-harassment/?hl=zh-cn)其他网站是否存在同类行为；如果有，则对此类网站上的内容采取降位措施。对于收到大量涉及[人肉搜索内容](https://support.google.com/websearch/answer/9673730?hl=zh-cn)、[未经当事人同意而制作或分享的露骨个人图像](https://support.google.com/websearch/answer/6302812?hl=zh-cn)或[未经当事人同意而发布的露骨虚假内容](https://support.google.com/websearch/answer/9116649?hl=zh-cn)的移除要求的网站，我们可能会采取类似的降位做法。
 
 ### 规避政策
 
@@ -256,82 +332,4 @@ path: /search/docs/essentials/spam-policies
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2026-04-20。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-20。"],[],["Google's web search spam policies aim to prevent deceptive content and ranking manipulation. Key actions prohibited include cloaking, doorway abuse, expired domain abuse, and using hacked or hidden content. Other violations encompass keyword stuffing, link spam, machine-generated traffic, malware, misleading functionality, and scaled content abuse. Additionally, scraping, site reputation abuse, sneaky redirects, thin affiliation, and user-generated spam are prohibited. Google also demotes sites with legal or personal information removal requests, and sites attempting to circumvent these policies.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-02。

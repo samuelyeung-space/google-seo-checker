@@ -42,7 +42,8 @@ path: /search/docs/appearance/page-experience
 -  [Search Console 的 HTTPS 报告](https://support.google.com/webmasters/answer/11396518?hl=zh-cn)：检查您是否提供安全的 HTTPS 网页，以及如果未提供的话，要修正哪些错误。
 -  [检查网站连接是否安全](https://support.google.com/chrome/answer/95617?hl=zh-cn)：了解如何根据 Chrome 的报告检查网站连接是否安全。 如果网页没有采用 HTTPS 协议，请了解如何[使用 HTTPS 确保网站安全](https://web.dev/articles/enable-https?hl=zh-cn)。
 -  [避免使用干扰性插页式广告和对话框](https://developers.google.com/search/docs/appearance/avoid-intrusive-interstitials?hl=zh-cn)：了解如何避免使用会导致内容不易访问的插页式广告。
--  [Chrome Lighthouse：](https://developer.chrome.com/docs/lighthouse/overview?hl=zh-cn)Chrome 中的此工具集可帮助您确定与网页体验相关的一系列改进，包括在移动设备上的易用性。
+-  [Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/overview?hl=zh-cn)：Chrome 中的此工具集可帮助您确定与网页体验相关的一系列改进，包括在移动设备上的易用性。
+-  [CrUX 广告指标](https://developer.chrome.com/docs/ads?hl=zh-cn)：这些来自 Chrome 的实验性 CrUX 指标可帮助您了解网站的广告数量、广告密度和广告权重指标。它们可让您深入了解真实用户在您网站上的广告体验，这些体验由 Chrome 观察并报告。
 
 ## 常见问题解答
 
@@ -70,73 +71,4 @@ path: /search/docs/appearance/page-experience
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-18。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-18。"],[],["Google's core ranking systems reward content with a good page experience, considering multiple aspects, not just one. Assess if your pages have good Core Web Vitals, are secure (HTTPS), mobile-friendly, avoid excessive ads or intrusive interstitials, and clearly distinguish main content. While there's no single ranking signal, Core Web Vitals and other page experience factors influence rankings. Page experience is evaluated per page. Google prioritizes relevant content, but good page experience enhances success, especially when many relevant options exist.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Français]()
--  [Indonesia]()
--  [Português – Brasil]()
--  [Русский]()
--  [中文 – 简体]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-25。

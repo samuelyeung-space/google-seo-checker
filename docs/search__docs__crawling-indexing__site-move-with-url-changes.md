@@ -44,9 +44,9 @@ path: /search/docs/crawling-indexing/site-move-with-url-changes
 -  **尽量选择在网络流量较低时进行迁移。**
  如果您的流量会呈季节性波动或在某些工作日骤降，那么明智的做法是在周期性流量骤降期间迁移网站。这意味着，更少的用户会受到网站迁移期间可能出现的潜在问题的影响，并且服务器可以分配更多资源专门供 Googlebot 抓取网站。
 -  **预计迁移期间网站排名会出现短暂波动。**
- 如果您对网站进行了重大更改，那么在 Google 对您的网站进行重新抓取以及重新编入索引期间，该网站的排名可能会出现波动。一般来说，中型网站可能需要几周的时间才能使大多数网页进入我们的索引，大型网站则可能需要更长的时间。Googlebot 和我们的系统发现和处理已迁移网址的速度，在很大程度上取决于网址的数量和您的服务器速度。 [提交站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?hl=zh-cn)有助于加快发现流程，按版块迁移网站也是可行的。
+ 如果您对网站进行了重大更改，那么在 Google 对您的网站进行重新抓取以及重新编入索引期间，该网站的排名可能会出现波动。一般来说，对于中型网站，Google 可能需要几周或更长时间才能逐渐开始显示新网址，而不是旧网址（对于大型网站，则需要更长时间）。Googlebot 和我们的系统发现和处理已迁移网址的速度，在很大程度上取决于网址的数量和您的服务器速度。 [提交站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?hl=zh-cn)有助于加快发现流程，按版块迁移网站也是可行的。
 -  **不用担心链接权重。**
- `301` 和[其他永久性重定向](https://developers.google.com/search/docs/crawling-indexing/301-redirects?hl=zh-cn#permanent-server-side-redirects)不会导致 [PageRank](https://wikipedia.org/wiki/PageRank) 排名降低。
+ `301` 和[其他永久重定向](https://developers.google.com/search/docs/crawling-indexing/301-redirects?hl=zh-cn#permanent-server-side-redirects)不会导致 [PageRank](https://wikipedia.org/wiki/PageRank) 排名降低。
 -  **充分利用 Search Console。**
  Search Console 是您的朋友，尤其是在网站迁移过程中。您可以在 Search Console 中分别验证每个资源的数据。通过[“索引状态”报告](https://support.google.com/webmasters/answer/7440203?hl=zh-cn)可进行全面检查。通过[站点地图报告](https://support.google.com/webmasters/answer/7451001?hl=zh-cn)可查看站点地图中提交的网址有多少个编入了索引。
 -  **耐心等待**
@@ -169,12 +169,15 @@ path: /search/docs/crawling-indexing/site-move-with-url-changes
 1.  **实现或启用重定向**：视您的重定向策略而定，这可能意味着您要将更新推送到服务器配置文件，或者更新您的 CMS（很可能需要使用自定义代码）。
  **避免无关的重定向**
 
- 请不要将多个旧网址重定向至一个无关的目标，如新网站的首页。这样做可能会令用户感到困惑，并可能会被视为[`soft 404` 错误](https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors?hl=zh-cn#soft-404-errors)。 但是，如果您将之前在多个网页上托管的内容合并成了一个新网页，可将多个旧网址重定向至这个合并后的新网页。
+ 请不要将大量旧网址重定向至单个无关的目标网址（例如新网站的首页）。这样做可能会令用户感到困惑，并可能会被视为[`soft 404` 错误](https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors?hl=zh-cn#soft-404-errors)。 但是，如果您将之前在多个网页上托管的内容合并成了一个新网页，可将多个旧网址重定向至这个合并后的新网页。
 
 2. ** 检查 `rel="canonical"``link` 注释和 `robots``meta` 规则：**重定向生效后，请确保新网站上的 `rel="canonical"``link` 注释使用的是新网址。同样，如果您向新网站添加了 `noindex``robots``meta` 规则，以避免过早将新网址编入索引，请务必更新这些规则。
 3.  **测试重定向**。您可以使用[网址检查工具](https://support.google.com/webmasters/answer/9012289?hl=zh-cn)测试单个网址，或者使用命令行工具或脚本测试大量网址。
-4.  **在 Search Console 中针对旧网站提交[地址更改](https://support.google.com/webmasters/answer/9370220?hl=zh-cn)请求**。
- 如果您要将网站从 HTTP 迁移到 HTTPS，则无需使用**地址更改**工具。
+4.  ** 如果您要更改域名或子网域，请在 Search Console 中针对旧网站提交[地址更改](https://support.google.com/webmasters/answer/9370220?hl=zh-cn)请求**。
+
+ 只有在从一个网域或子网域迁移到另一个网域或子网域（例如从 `example.com` 迁移到 `example.net`，或从 `a.example.com` 迁移到 `b.example.com`）时，才需要使用此工具。在从 HTTP 迁移到 HTTPS、在同一网域上切换 www 和非 www，或在同一网域内迁移路径时，无需使用此工具。
+
+ **对于网域迁移**：如果您要迁移到新域名，请务必针对旧网域的所有已验证变体（包括子网域和 www/非 www 版本）向新网域提交**地址更改**请求（例如，从 `en.example.com`、`www.example.com` 和 `example.com` 更改为 `new-example.net`），即使您没有主动使用这些变体。确保您已在 Search Console 中验证所有这些变体。
 
 5.
 
@@ -259,82 +262,4 @@ Search Console 中的许多功能都可以帮助您监控网站迁移过程，�
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2026-03-31。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-03-31。"],[],["To minimize the impact of site moves on Google Search, prepare by mapping old URLs to new ones, updating internal links, and creating a new sitemap. Implement server-side redirects (301/308) from old to new URLs, avoiding chained redirects. For large sites, move in sections. Monitor traffic on both sites via Search Console and analytics. Update external links and profile links, submit the new sitemap, and maintain redirects for at least a year. Finally, address any `noindex`, robot.txt blocks and crawl errors.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-11。

@@ -149,7 +149,7 @@ https://example.com/**🦙✨**
 
 ### 使用连字符分隔字词
 
-建议您尽可能在网址中分隔字词。具体而言，我们建议您使用连字符 (`-`) 而非下划线 (`_`) 来分隔网址中的字词，因为这有助于用户和搜索引擎更好地识别网址中的概念。出于历史原因，我们不建议使用下划线，因为这种样式已被广泛用于表示应保持在一起的概念，例如，各种编程语言用来命名函数（例如 `format_date`）。
+建议您尽可能在网址中分隔字词。具体而言，我们建议您使用连字符 (`-`) 而非下划线 (`_`) 来分隔网址中的字词，因为这有助于用户和搜索引擎更好地识别网址中的概念。出于历史原因，我们不建议使用下划线。这是因为下划线通常用于表示应紧密联系在一起的概念，例如在各种编程语言中用于命名函数（如 `format_date`）；相比之下，连字符则能清晰地起到分隔词汇的作用。
 
  推荐
 
@@ -284,82 +284,4 @@ https://example.com/calendar.php?d=13&m=8&y=2011
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-31。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-31。"],[],["Google's URL best practices recommend using simple, descriptive words, preferably in the audience's language, and utilizing UTF-8 encoding for non-ASCII characters. Hyphens should separate words, and key-value pairs should use \"=\" and \"&\", with commas for multiple values. Avoid long ID numbers, fragments, and underscores. Complex URLs, excessive parameters, session IDs, and dynamic calendars can create indexing problems; address these by simplifying the URL structure, using robots.txt to block problem URLs, and avoiding session IDs.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-10-26。

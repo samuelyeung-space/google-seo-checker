@@ -1,7 +1,7 @@
 {
   "name": "google-seo-checker",
   "version": "0.1.0",
-  "description": "Page SEO checker grounded in 152 Google Search docs — 65 rules, every one cites the doc it derives from. Bundled with a keyword lookup over the docs.",
+  "description": "Page SEO checker grounded in 150 Google Search docs — 65 rules, every one cites the doc it derives from. Bundled with a keyword lookup over the docs.",
   "type": "module",
   "main": "./run.mjs",
   "bin": {

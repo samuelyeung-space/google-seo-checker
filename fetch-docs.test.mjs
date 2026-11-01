@@ -128,6 +128,45 @@ test('does not count footer text as topic evidence', async () => {
   await withRefresh([FAQ], (_url, res) => res.end(html(FAQ, { body: bodies[GUIDE] }).replace('</body>', `<footer>${bodies[FAQ]}</footer></body>`)), context => unchanged(context, FAQ));
 });
 
+test('preserves the document license and updated date outside the article', async () => {
+  const footer = '<devsite-content-footer><p>Content: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p><p>Last updated 2026-09-15 UTC.</p></devsite-content-footer>';
+  await withRefresh([GUIDE], (_url, res) => res.end(html(GUIDE).replace('</body>', `${footer}</body>`)), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const md = await readFile(path.join(root, 'docs', `${slug(GUIDE)}.md`), 'utf8');
+    assert.ok(md.includes('[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)'));
+    assert.ok(md.includes('Last updated 2026-09-15 UTC.'));
+  });
+});
+
+test('document footer cannot supply missing article topic evidence', async () => {
+  await withRefresh([FAQ], (_url, res) => res.end(html(FAQ, { body: bodies[GUIDE] }).replace('</body>', `<devsite-content-footer>${bodies[FAQ]}</devsite-content-footer></body>`)), context => unchanged(context, FAQ));
+});
+
+test('nested code-tab articles retain the entire outer article without unrelated following content', async () => {
+  const between = 'Implementation guidance between the code examples remains part of the documentation.';
+  const after = 'Required properties and content guidelines after all code tabs must remain available to readers.';
+  const firstExample = 'First code tab example';
+  const secondExample = 'Second code tab example';
+  const unrelated = 'Unrelated article after the documentation';
+  const footer = 'Site footer after the documentation';
+  const page = html(GUIDE).replace('</article>', `<article class="code-tab"><p>${firstExample}</p></article><p>${between}</p><article class="code-tab"><p>${secondExample}</p></article><h2>Content guidelines</h2><p>${after}</p></article><article><p>${unrelated}</p></article><footer>${footer}</footer>`);
+  await withRefresh([GUIDE], (_url, res) => res.end(page), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const markdown = await readFile(path.join(root, 'docs', `${slug(GUIDE)}.md`), 'utf8');
+    for (const content of [bodies[GUIDE], firstExample, between, secondExample, after]) {
+      assert.ok(markdown.includes(content), `outer article lost content: ${content}`);
+    }
+    for (const content of [unrelated, footer]) {
+      assert.ok(!markdown.includes(content), `included content outside the outer article: ${content}`);
+    }
+  });
+});
+
+test('rejects a missing outer article close despite closed nested articles and preserves the batch', async () => {
+  const incomplete = html(FAQ).replace('</article>', '<article class="code-tab"><p>Nested code example</p></article>');
+  await withRefresh([GUIDE, FAQ], (url, res) => res.end(url.pathname === FAQ ? incomplete : html(GUIDE)), context => unchanged(context, FAQ));
+});
+
 test('validates old raw cache before re-extraction', async () => {
   await withRefresh([FAQ], (_url, res) => { res.statusCode = 500; res.end(); }, context => unchanged(context, FAQ), { cached: html(FAQ, { title: '最新文档更新', body: updates, canonical: '/search/updates' }), force: false });
 });
@@ -161,6 +200,59 @@ test('accepts correct documents and harmless locale query redirects', async () =
     const index = await readFile(path.join(root, 'INDEX.md'), 'utf8');
     assert.ok(index.includes('共 3 篇'));
     assert.ok(index.includes(titles[FAQ]) && index.includes(titles[SXG]));
+  });
+});
+
+test('repeated identical full refresh preserves INDEX.md bytes and date', async () => {
+  await withRefresh([FAQ, SXG, GUIDE], (url, res) => res.end(html(url.pathname)), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const indexFile = path.join(root, 'INDEX.md');
+    const index = (await readFile(indexFile, 'utf8')).replace(/^> 最后抓取: .*$/m, '> 最后抓取: 2020-01-01T00:00:00.000Z');
+    await writeFile(indexFile, index);
+    const documents = await Promise.all([FAQ, SXG, GUIDE].map(p => readFile(path.join(root, 'docs', `${slug(p)}.md`), 'utf8')));
+    for (let refresh = 0; refresh < 2; refresh++) {
+      const rerun = await run('fetch-docs.mjs', root, ['--force']);
+      assert.equal(rerun.code, 0, rerun.stderr);
+      assert.equal(await readFile(indexFile, 'utf8'), index, 'unchanged documents created an index-only update');
+      for (const [i, p] of [FAQ, SXG, GUIDE].entries()) {
+        assert.equal(await readFile(path.join(root, 'docs', `${slug(p)}.md`), 'utf8'), documents[i]);
+      }
+    }
+  });
+});
+
+test('body-only change with the same title updates the document and INDEX.md date', async () => {
+  let body = bodies[GUIDE];
+  await withRefresh([GUIDE], (_url, res) => res.end(html(GUIDE, { body })), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const indexFile = path.join(root, 'INDEX.md');
+    const index = (await readFile(indexFile, 'utf8')).replace(/^> 最后抓取: .*$/m, '> 最后抓取: 2020-01-01T00:00:00.000Z');
+    await writeFile(indexFile, index);
+    body += ' Review the page after changing its main content and update descriptive headings when needed.';
+    const rerun = await run('fetch-docs.mjs', root, ['--force']);
+    assert.equal(rerun.code, 0, rerun.stderr);
+    const document = await readFile(path.join(root, 'docs', `${slug(GUIDE)}.md`), 'utf8');
+    assert.ok(document.includes(body));
+    assert.ok(document.includes(`title: ${JSON.stringify(titles[GUIDE])}`));
+    const refreshedIndex = await readFile(indexFile, 'utf8');
+    assert.notEqual(refreshedIndex, index, 'body changes must advance the index date');
+    assert.equal(refreshedIndex.replace(/^> 最后抓取: .*$/m, ''), index.replace(/^> 最后抓取: .*$/m, ''));
+    assert.ok(Date.parse(refreshedIndex.match(/^> 最后抓取: (.+)$/m)[1]) > Date.parse('2020-01-01T00:00:00.000Z'));
+  });
+});
+
+test('unchanged documents still repair a corrupted index and advance its date', async () => {
+  await withRefresh([GUIDE], (_url, res) => res.end(html(GUIDE)), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const indexFile = path.join(root, 'INDEX.md');
+    const correctIndex = await readFile(indexFile, 'utf8');
+    const corruptedIndex = correctIndex.replace(titles[GUIDE], 'Wrong document title').replace(/^> 最后抓取: .*$/m, '> 最后抓取: 2020-01-01T00:00:00.000Z');
+    await writeFile(indexFile, corruptedIndex);
+    const rerun = await run('fetch-docs.mjs', root, ['--force']);
+    assert.equal(rerun.code, 0, rerun.stderr);
+    const repairedIndex = await readFile(indexFile, 'utf8');
+    assert.equal(repairedIndex.replace(/^> 最后抓取: .*$/m, ''), correctIndex.replace(/^> 最后抓取: .*$/m, ''));
+    assert.ok(!repairedIndex.includes('2020-01-01T00:00:00.000Z'));
   });
 });
 
@@ -204,6 +296,26 @@ for (const p of [FAQ, SXG]) {
 test('offline corpus check rejects missing listed documents', async () => {
   await withCorpus(root => rm(path.join(root, 'docs', `${slug(FAQ)}.md`)), result => {
     assert.notEqual(result.code, 0);
+    assert.ok(result.stderr.includes(FAQ), result.stderr);
+  });
+});
+
+test('offline corpus check rejects an orphan Markdown document not listed in sources', async () => {
+  const orphan = 'unlisted-document.md';
+  await withCorpus(root => writeFile(path.join(root, 'docs', orphan), '# Unlisted document\n\n' + bodies[GUIDE]), result => {
+    assert.notEqual(result.code, 0, 'orphan document was accepted');
+    assert.ok(result.stderr.includes(orphan), result.stderr);
+  });
+});
+
+test('offline corpus check rejects a retired path that is still active', async () => {
+  await withCorpus(async root => {
+    const file = path.join(root, 'sources.json');
+    const sources = JSON.parse(await readFile(file, 'utf8'));
+    sources.retired = [{ path: FAQ, reason: 'Official documentation was removed.', evidence: 'https://developers.google.com/search/updates' }];
+    await writeFile(file, JSON.stringify(sources));
+  }, result => {
+    assert.notEqual(result.code, 0, 'retired source remained active');
     assert.ok(result.stderr.includes(FAQ), result.stderr);
   });
 });

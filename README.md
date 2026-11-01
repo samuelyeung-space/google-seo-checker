@@ -3,7 +3,7 @@
 > **For developers shipping SSR/SSG pages:** a single-page SEO preflight with
 > transparent rules and Google documentation links. [Read the English quick start](./README.en.md).
 >
-> 把 [Google Search 152 篇官方文档](https://developers.google.com/search/docs) 里能机检的部分变成 **65 条规则** + **全文反查工具**。规则是人工挑选，不是 Google 官方工具，也不保证排名。
+> 把 [Google Search 150 篇官方文档](https://developers.google.com/search/docs) 里能机检的部分变成 **65 条规则** + **全文反查工具**。规则是人工挑选，不是 Google 官方工具，也不保证排名。
 
 [English quick start](./README.en.md) · 中文
 
@@ -41,9 +41,9 @@ node cli.mjs https://example.com/ --json
 1. **Lighthouse / PageSpeed** — 强在 CWV，弱在 schema / canonical / robots / 反垃圾政策
 2. **Screaming Frog / Ahrefs / Semrush** — 商业付费，规则黑箱，对小项目过重
 
-而真正的 ground truth 是 [developers.google.com/search/docs](https://developers.google.com/search/docs) 这 152 篇 — 大多数程序员从没完整读过。
+而真正的 ground truth 是 [developers.google.com/search/docs](https://developers.google.com/search/docs) 这 150 篇 — 大多数程序员从没完整读过。
 
-这个工具做的事：**把那 152 篇里能机检的部分写成 if 语句**，每条规则都带出处链接。
+这个工具做的事：**把那 150 篇里能机检的部分写成 if 语句**，每条规则都带出处链接。
 
 ## 安装可选命令别名
 

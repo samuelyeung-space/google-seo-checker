@@ -41,7 +41,7 @@ git branch -m main
 cd /tmp/google-seo-checker
 gh repo create yangyangnovelist-hub/google-seo-checker \
   --public \
-  --description "Page SEO checker grounded in 152 Google Search docs — 65 rules, every rule cites its source doc." \
+  --description "Page SEO checker grounded in 150 Google Search docs — 65 rules, every rule cites its source doc." \
   --source=. \
   --remote=origin \
   --push

@@ -87,9 +87,10 @@ async function main() {
       '',
       markdown,
     ].join('\n');
+    const changed = !existsSync(mdFile) || await readFile(mdFile, 'utf8') !== front;
     done++;
     process.stdout.write(`\r[${done}/${total}] ${p.padEnd(70).slice(0, 70)}`);
-    return { slug, title, path: p, rawFile, mdFile, front, html: fetched.html, cached };
+    return { slug, title, path: p, rawFile, mdFile, front, html: fetched.html, cached, changed };
   }, CONCURRENCY);
 
   process.stdout.write('\n');
@@ -101,12 +102,6 @@ async function main() {
     throw new Error('Document refresh rejected; no docs, raw cache, or index were written');
   }
 
-  await mkdir(RAW_DIR, { recursive: true });
-  await mkdir(DOCS_DIR, { recursive: true });
-  for (const result of results) {
-    if (!result.cached) await writeFile(result.rawFile, result.html, 'utf8');
-    await writeFile(result.mdFile, result.front, 'utf8');
-  }
   const tocEntries = results;
   tocEntries.sort((a, b) => a.path.localeCompare(b.path));
   const toc = [
@@ -118,8 +113,23 @@ async function main() {
     ...tocEntries.map(e => `- [${e.title}](./docs/${e.slug}.md) — \`${e.path}\``),
     '',
   ].join('\n');
-  await writeFile(path.join(ROOT, 'INDEX.md'), toc, 'utf8');
-  console.log(`\nWrote ${tocEntries.length} markdown files + INDEX.md`);
+  const indexFile = path.join(ROOT, 'INDEX.md');
+  const previousToc = existsSync(indexFile) ? await readFile(indexFile, 'utf8') : '';
+  const timestampLine = /^> 最后抓取: (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z)$/m;
+  const previousTimestamp = previousToc.match(timestampLine)?.[1];
+  const changedDocuments = results.filter(result => result.changed);
+  const indexUnchanged = changedDocuments.length === 0 &&
+    Number.isFinite(Date.parse(previousTimestamp)) &&
+    previousToc.replace(timestampLine, '> 最后抓取:') === toc.replace(timestampLine, '> 最后抓取:');
+
+  await mkdir(RAW_DIR, { recursive: true });
+  await mkdir(DOCS_DIR, { recursive: true });
+  for (const result of results) {
+    if (!result.cached) await writeFile(result.rawFile, result.html, 'utf8');
+    if (result.changed) await writeFile(result.mdFile, result.front, 'utf8');
+  }
+  if (!indexUnchanged) await writeFile(indexFile, toc, 'utf8');
+  console.log(`\nValidated ${tocEntries.length} documents; updated ${changedDocuments.length} markdown files${indexUnchanged ? '' : ' + INDEX.md'}`);
 }
 
 main().catch(err => { console.error(err); process.exit(1); });

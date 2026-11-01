@@ -177,7 +177,7 @@ JSON-LD
 ### 内容指南
 
 - 仅当网页包含的信息采用问答格式（即先列出一个问题，后跟相应的答案）时，才能使用 `QAPage` 标记。
-- 必须允许用户提交问题的答案。如果给定的问题只有 1 条答案，并且不支持用户提交备选答案，请不要对内容使用 `QAPage` 标记；在这种情况下应改用 [`FAQPage`](https://developers.google.com/search/docs/appearance/structured-data/faqpage?hl=zh-cn)。以下是一些示例：
+- 必须允许用户提交问题的答案。如果给定的问题只有 1 条答案，并且不支持用户提交备选答案，请不要对内容使用 `QAPage` 标记；以下是一些示例：
 
 **有效用例**：
 
@@ -273,7 +273,7 @@ JSON-LD
 
 问题作者的相关信息。为了帮助 Google 更好地了解各种功能中的作者，建议您遵循[作者标记最佳实践](https://developers.google.com/search/docs/appearance/structured-data/article?hl=zh-cn#author-bp)。
 
-请参考[文章](https://developers.google.com/search/docs/appearance/structured-data/articl?hl=zh-cn#article-types)和[个人资料页面](https://developers.google.com/search/docs/appearance/structured-data/profile-page?hl=zh-cn)结构化数据中受支持的属性，然后包含尽可能多的合理作者属性。
+请参考[文章](https://developers.google.com/search/docs/appearance/structured-data/article?hl=zh-cn#article-types)和[个人资料页面](https://developers.google.com/search/docs/appearance/structured-data/profile-page?hl=zh-cn)结构化数据中受支持的属性，然后包含尽可能多的合理作者属性。
 
 ### `author.url`
 
@@ -291,7 +291,7 @@ JSON-LD
 
 `[Integer](https://schema.org/Integer)`
 
-与相应问题相关的评论数量（如果适用）。`answerCount` + `commentCount` 应等于任何类型的回复总数。
+关于相应问题的评论数（如果适用）。`answerCount` + `commentCount` 应等于任何类型的回复总数。
 
 `dateModified`
 
@@ -311,8 +311,8 @@ JSON-LD
 
 `digitalSourceType` 属性用于指明与内容关联的数字来源类型（如适用）。此属性在辨别人工创作内容与 AI 或其他机器生成内容时尤为关键。Google 支持以下值：
 
-- `TrainedAlgorithmicMediaDigitalSource`：表示由经过训练的模型（例如 LLM）创建的内容。
-- `AlgorithmicMediaDigitalSource`：表示通过更简单的算法流程（例如自动回复机器人）创建的内容。
+- `TrainedAlgorithmicMediaDigitalSource`：表示内容是由经过训练的模型（例如 LLM）创建的。
+- `AlgorithmicMediaDigitalSource`：表示内容是经过更简单的算法流程（例如自动回复机器人）创建的。
 
 如果未指定此属性，Google 会假定内容是由人工生成的。
 
@@ -384,7 +384,7 @@ JSON-LD
 
 `[Integer](https://schema.org/Integer)`
 
-有关相应回答的评论数量（如果适用）。如果评论标记中未包含所有这些属性，此属性就特别有用。
+关于相应答案的评论数（如果适用）。如果评论标记中未包含所有这些属性，此属性就特别有用。
 
 `dateModified`
 
@@ -404,8 +404,8 @@ JSON-LD
 
 `digitalSourceType` 属性用于指明与内容关联的数字来源类型（如适用）。此属性在辨别人工创作内容与 AI 或其他机器生成内容时尤为关键。Google 支持以下值：
 
-- `TrainedAlgorithmicMediaDigitalSource`：表示由经过训练的模型（例如 LLM）创建的内容。
-- `AlgorithmicMediaDigitalSource`：表示通过更简单的算法流程（例如自动回复机器人）创建的内容。
+- `TrainedAlgorithmicMediaDigitalSource`：表示内容是由经过训练的模型（例如 LLM）创建的。
+- `AlgorithmicMediaDigitalSource`：表示内容是经过更简单的算法流程（例如自动回复机器人）创建的。
 
 如果未指定此属性，Google 会假定内容是由人工生成的。
 
@@ -495,8 +495,8 @@ JSON-LD
 
 `digitalSourceType` 属性用于指明与内容关联的数字来源类型（如适用）。此属性在辨别人工创作内容与 AI 或其他机器生成内容时尤为关键。Google 支持以下值：
 
-- `TrainedAlgorithmicMediaDigitalSource`：表示由经过训练的模型（例如 LLM）创建的内容。
-- `AlgorithmicMediaDigitalSource`：表示通过更简单的算法流程（例如自动回复机器人）创建的内容。
+- `TrainedAlgorithmicMediaDigitalSource`：表示内容是由经过训练的模型（例如 LLM）创建的。
+- `AlgorithmicMediaDigitalSource`：表示内容是经过更简单的算法流程（例如自动回复机器人）创建的。
 
 如果未指定此属性，Google 会假定内容是由人工生成的。
 
@@ -547,82 +547,13 @@ JSON-LD
 
 - 如果您使用了内容管理系统 (CMS) 或其他人负责管理您的网站，请向其寻求帮助。请务必向其转发列明问题细节的任何 Search Console 消息。
 - Google 不能保证使用结构化数据的功能一定会显示在搜索结果中。如需查看导致 Google 无法将您的内容显示为富媒体搜索结果的各种常见原因，请参阅[结构化数据常规指南](https://developers.google.com/search/docs/appearance/structured-data/sd-policies?hl=zh-cn)。
-- 您的结构化数据可能存在错误。请参阅[结构化数据错误列表](https://support.google.com/webmasters/answer/7552505?hl=zh-cn#error_list)。
+- 您的结构化数据可能存在错误。请查看[结构化数据错误列表](https://support.google.com/webmasters/answer/13300873?hl=zh-cn)和[“无法解析的结构化数据”报告](https://support.google.com/webmasters/answer/9166415?hl=zh-cn)。
 - 如果您的网页受到结构化数据手动操作的影响，其中的结构化数据将会被忽略（但该网页仍可能会出现在 Google 搜索结果中）。如需修正[结构化数据问题](https://support.google.com/webmasters/answer/9044175?hl=zh-cn#zippy=,structured-data-issue)，请使用[“人工处置措施”报告](https://support.google.com/webmasters/answer/9044175?hl=zh-cn)。
 - 再次查看相关[指南](#guidelines)，确认您的内容是否未遵循指南。问题可能是因为出现垃圾内容或使用垃圾标记导致的。不过，问题可能不是语法问题，因此富媒体搜索结果测试无法识别这些问题。
-- [针对富媒体搜索结果缺失/富媒体搜索结果总数下降进行问题排查](https://support.google.com/webmasters/answer/7552505?hl=zh-cn#missing-jobs)。
+- 结构化数据问题可能会影响网站内容在搜索结果中的显示方式。请参阅[针对富媒体搜索结果缺失/富媒体搜索结果总数下降进行问题排查](https://support.google.com/webmasters/answer/13300208?hl=zh-cn)指南，了解在 Search Console 中发现、修正和验证这些问题的分步方法。
 - 请等待一段时间，以便 Google 重新抓取您的网页并重新将其编入索引。请注意，网页发布后，Google 可能需要几天时间才会找到和抓取该网页。有关抓取和索引编制的常见问题，请参阅 [Google 搜索抓取和索引编制常见问题解答](https://developers.google.com/search/help/crawling-index-faq?hl=zh-cn)。
 - 在 [Google 搜索中心论坛](https://support.google.com/webmasters/community?hl=zh-cn)中发帖提问。
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2026-03-26。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-03-26。"],[],["`QAPage` structured data enhances question-and-answer web pages for search engines, using `QAPage`, `Question`, and `Answer` schema.org types. Key actions involve adding required properties, validating the code using the Rich Results Test, deploying, and submitting a sitemap. Pages must contain one question and allow user-submitted answers. `Question` requires an `answerCount`, `name` and either `acceptedAnswer` or `suggestedAnswer`, and `Answer` requires `text`. Using the Rich Result status report, live URLs test and perform a validation is part of the monitoring after deploying.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Français]()
--  [Indonesia]()
--  [Português – Brasil]()
--  [Русский]()
--  [中文 – 简体]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-15。

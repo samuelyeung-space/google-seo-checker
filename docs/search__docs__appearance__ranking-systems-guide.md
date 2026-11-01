@@ -77,7 +77,7 @@ path: /search/docs/appearance/ranking-systems-guide
  Google 的政策允许移除某些类型的内容。如果我们处理了涉及特定网站的大量此类移除要求，便将以此作为衡量因素来改进我们的搜索结果。尤其要注意：
 
 -  **依法移除：** 如果收到大量涉及特定网站的[有效版权内容移除要求](https://support.google.com/transparencyreport/answer/7347743?hl=zh-cn)，[我们会据此](https://search.googleblog.com/2012/08/an-update-to-our-search-algorithms.html)降低该网站中其他内容在搜索结果中的排名。这样，如果存在其他侵权内容，用户更可能看到原创内容，而非相应侵权内容。对于涉及诽谤、仿冒商品和法院命令移除的投诉，我们会采用类似的降位衡量因素。对于儿童性虐待内容 (CSAM)，我们一经发现即会将其移除，并会降低儿童性虐待内容 (CSAM) 占比非常高的网站中所有内容的排名。
--  **移除个人信息：** If we process a significant volume of personal information removals involving a site with [exploitative removal practices](https://support.google.com/websearch/answer/9172218?hl=zh-cn), we demote other content from the site in our results. [We also look to see](https://blog.google/products/search/improving-search-better-protect-people-harassment/?hl=zh-cn) if the same pattern of behavior is happening with other sites and, if so, apply demotions to content on those sites. We may apply similar demotion practices for sites that receive a significant volume of removals of content involving [doxxing content](https://support.google.com/websearch/answer/9673730?hl=zh-cn), [explicit personal imagery created or shared without consent](https://support.google.com/websearch/answer/6302812?hl=zh-cn), or [explicit non-consensual fake content](https://support.google.com/websearch/answer/9116649?hl=zh-cn).
+-  **移除个人信息：** 如果我们处理的大量个人信息移除要求涉及某个采用[有偿移除做法](https://support.google.com/websearch/answer/9172218?hl=zh-cn)的网站，我们会降低该网站中其他内容在搜索结果中的排名。[我们也会设法了解](https://blog.google/products/search/improving-search-better-protect-people-harassment/?hl=zh-cn)其他网站是否存在同类行为；如果有，则对此类网站上的内容采取降位措施。对于收到大量涉及[人肉搜索内容](https://support.google.com/websearch/answer/9673730?hl=zh-cn)、[未经当事人同意而制作或分享的露骨个人图像](https://support.google.com/websearch/answer/6302812?hl=zh-cn)或[未经当事人同意而发布的露骨虚假内容](https://support.google.com/websearch/answer/9116649?hl=zh-cn)的移除要求的网站，我们可能会采取类似的降位做法。
 
 ## 段落排名系统
 
@@ -126,81 +126,3 @@ path: /search/docs/appearance/ranking-systems-guide
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
 最后更新时间 (UTC)：2025-12-18。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-18。"],[],["Google's search ranking relies on automated systems that analyze numerous factors across web pages to deliver relevant results. These systems, including core systems and those for specific needs, use page-level and site-wide signals. Key actions involve continuous testing, updates, and specific systems like BERT, MUM, Neural matching, and RankBrain to understand language, intent, and concepts. Other systems address crises, deduplication, exact match domains, freshness, original content, local news, reliable information, and reviews. Spam and removals are addressed with detection and demotion systems.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()

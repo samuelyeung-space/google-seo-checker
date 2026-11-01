@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateDocumentContent } from './lib/doc-validation.mjs';
@@ -7,10 +7,17 @@ import { validateDocumentContent } from './lib/doc-validation.mjs';
 const root = path.dirname(fileURLToPath(import.meta.url));
 
 async function main() {
-  const { base, paths, lang } = JSON.parse(await readFile(path.join(root, 'sources.json'), 'utf8'));
+  const { base, paths, lang, retired = [] } = JSON.parse(await readFile(path.join(root, 'sources.json'), 'utf8'));
   const index = await readFile(path.join(root, 'INDEX.md'), 'utf8');
   const failures = [];
   if (new Set(paths).size !== paths.length) failures.push('sources.json: duplicate source paths');
+  for (const source of retired) {
+    if (paths.includes(source.path)) failures.push(`sources.json: retired source is still active: ${source.path}`);
+  }
+  const expectedFiles = new Set(paths.map(p => `${p.replace(/^\//, '').replaceAll('/', '__') || 'index'}.md`));
+  for (const file of await readdir(path.join(root, 'docs'))) {
+    if (file.endsWith('.md') && !expectedFiles.has(file)) failures.push(`docs/${file}: document is not listed in sources.json`);
+  }
   const entries = [...index.matchAll(/^- \[([\s\S]*?)\]\(\.\/docs\/([^\n)]+)\.md\) — `([^`]+)`/gm)];
   if (entries.length !== paths.length || !index.includes(`> 共 ${paths.length} 篇`)) {
     failures.push('INDEX.md: document count does not match sources.json');

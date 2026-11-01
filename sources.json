@@ -34,7 +34,7 @@
     "/search/docs/crawling-indexing/consolidate-duplicate-urls",
     "/search/docs/crawling-indexing/canonicalization-troubleshooting",
     "/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing",
-    "/search/docs/crawling-indexing/amp/about-amp",
+    "/search/docs/crawling-indexing/amp",
     "/search/docs/crawling-indexing/amp/enhance-amp",
     "/search/docs/crawling-indexing/amp/validate-amp",
     "/search/docs/crawling-indexing/amp/remove-amp",
@@ -69,7 +69,6 @@
     "/search/docs/appearance/page-experience",
     "/search/docs/appearance/core-web-vitals",
     "/search/docs/appearance/avoid-intrusive-interstitials",
-    "/search/docs/appearance/signed-exchange",
     "/search/docs/appearance/preferred-sources",
     "/search/docs/appearance/ranking-systems-guide",
     "/search/docs/appearance/reviews-system",
@@ -94,7 +93,6 @@
     "/search/docs/appearance/structured-data/employer-rating",
     "/search/docs/appearance/structured-data/factcheck",
     "/search/docs/appearance/structured-data/event",
-    "/search/docs/appearance/structured-data/faqpage",
     "/search/docs/appearance/structured-data/image-license-metadata",
     "/search/docs/appearance/structured-data/job-posting",
     "/search/docs/appearance/structured-data/local-business",
@@ -155,5 +153,22 @@
     "/search/docs/specialty/international/locale-adaptive-pages",
     "/search/docs/specialty/explicit/guidelines",
     "/search/docs/specialty/explicit/troubleshooting"
+  ],
+  "retired": [
+    {
+      "path": "/search/docs/appearance/structured-data/faqpage",
+      "reason": "Google Search FAQ rich results were discontinued on 2026-05-07; the documentation was removed on 2026-06-15.",
+      "evidence": [
+        "https://developers.google.com/search/updates#removing-faq-rich-result"
+      ]
+    },
+    {
+      "path": "/search/docs/appearance/signed-exchange",
+      "reason": "The former Google Search Signed Exchange guide has been removed and its URL redirects to the updates index.",
+      "evidence": [
+        "https://developers.google.com/search/updates#updating-amp-documentation",
+        "https://developers.google.com/public-key-infrastructure/updates/july2026-sxg-deprecation"
+      ]
+    }
   ]
 }

@@ -1,11 +1,9 @@
 # Google Search SEO 文档索引
 
-> 共 152 篇，来源 developers.google.com/search/docs (hl=zh_CN)
-> 最后抓取: 2026-05-15T05:54:45.855Z
+> 共 150 篇，来源 developers.google.com/search/docs (hl=zh_CN)
+> 最后抓取: 2026-11-01T14:22:06.279Z
 
-- [Google
-    
-  Search Central](./docs/search__docs.md) — `/search/docs`
+- [浏览 Google 搜索文档，改善网站的 SEO 效果](./docs/search__docs.md) — `/search/docs`
 - [搜索结果呈现主题概览](./docs/search__docs__appearance.md) — `/search/docs/appearance`
 - [让广告网络能够使用与翻译相关的 Google 搜索功能](./docs/search__docs__appearance__ad-network-and-translation.md) — `/search/docs/appearance/ad-network-and-translation`
 - [AI 功能和您的网站](./docs/search__docs__appearance__ai-features.md) — `/search/docs/appearance/ai-features`
@@ -26,7 +24,6 @@
 - [影响您在 Google 搜索中的署名日期](./docs/search__docs__appearance__publication-dates.md) — `/search/docs/appearance/publication-dates`
 - [Google 搜索排名系统指南](./docs/search__docs__appearance__ranking-systems-guide.md) — `/search/docs/appearance/ranking-systems-guide`
 - [Google 搜索的评价系统与您的网站之间的关系](./docs/search__docs__appearance__reviews-system.md) — `/search/docs/appearance/reviews-system`
-- [开始在 Google 搜索中使用 Signed Exchange](./docs/search__docs__appearance__signed-exchange.md) — `/search/docs/appearance/signed-exchange`
 - [向 Google 搜索提供网站名称](./docs/search__docs__appearance__site-names.md) — `/search/docs/appearance/site-names`
 - [站内链接](./docs/search__docs__appearance__sitelinks.md) — `/search/docs/appearance/sitelinks`
 - [控制搜索结果中的摘要](./docs/search__docs__appearance__snippet.md) — `/search/docs/appearance/snippet`
@@ -43,7 +40,6 @@
 - [雇主总体评分 (EmployerAggregateRating) 结构化数据](./docs/search__docs__appearance__structured-data__employer-rating.md) — `/search/docs/appearance/structured-data/employer-rating`
 - [活动 (Event) 结构化数据](./docs/search__docs__appearance__structured-data__event.md) — `/search/docs/appearance/structured-data/event`
 - [事实核查 (ClaimReview) 结构化数据](./docs/search__docs__appearance__structured-data__factcheck.md) — `/search/docs/appearance/structured-data/factcheck`
-- [FAQ（FAQPage、Question、Answer）结构化数据](./docs/search__docs__appearance__structured-data__faqpage.md) — `/search/docs/appearance/structured-data/faqpage`
 - [使用 JavaScript 生成结构化数据](./docs/search__docs__appearance__structured-data__generate-structured-data-with-javascript.md) — `/search/docs/appearance/structured-data/generate-structured-data-with-javascript`
 - [Google 图片中的图片元数据](./docs/search__docs__appearance__structured-data__image-license-metadata.md) — `/search/docs/appearance/structured-data/image-license-metadata`
 - [Google 搜索中的结构化数据标记简介](./docs/search__docs__appearance__structured-data__intro-structured-data.md) — `/search/docs/appearance/structured-data/intro-structured-data`
@@ -79,16 +75,16 @@
 - [创建网络故事的最佳做法](./docs/search__docs__appearance__web-stories-creation-best-practices.md) — `/search/docs/appearance/web-stories-creation-best-practices`
 - [抓取和索引编制主题概览](./docs/search__docs__crawling-indexing.md) — `/search/docs/crawling-indexing`
 - [重定向和 Google 搜索](./docs/search__docs__crawling-indexing__301-redirects.md) — `/search/docs/crawling-indexing/301-redirects`
-- [了解 AMP 在搜索结果中的运作原理](./docs/search__docs__crawling-indexing__amp__about-amp.md) — `/search/docs/crawling-indexing/amp/about-amp`
+- [Google 搜索中的 AMP 简介](./docs/search__docs__crawling-indexing__amp.md) — `/search/docs/crawling-indexing/amp`
 - [增强在 Google 搜索结果中显示的 AMP 内容](./docs/search__docs__crawling-indexing__amp__enhance-amp.md) — `/search/docs/crawling-indexing/amp/enhance-amp`
 - [从 Google 搜索结果中移除 AMP 网页](./docs/search__docs__crawling-indexing__amp__remove-amp.md) — `/search/docs/crawling-indexing/amp/remove-amp`
-- [验证 AMP 内容是否可以显示在 Google 搜索结果中](./docs/search__docs__crawling-indexing__amp__validate-amp.md) — `/search/docs/crawling-indexing/amp/validate-amp`
+- [验证 AMP 内容](./docs/search__docs__crawling-indexing__amp__validate-amp.md) — `/search/docs/crawling-indexing/amp/validate-amp`
 - [请求 Google 重新抓取您的网址](./docs/search__docs__crawling-indexing__ask-google-to-recrawl.md) — `/search/docs/crawling-indexing/ask-google-to-recrawl`
 - [使用 noindex 阻止搜索引擎编入索引](./docs/search__docs__crawling-indexing__block-indexing.md) — `/search/docs/crawling-indexing/block-indexing`
 - [什么是规范化](./docs/search__docs__crawling-indexing__canonicalization.md) — `/search/docs/crawling-indexing/canonicalization`
 - [解决规范化问题](./docs/search__docs__crawling-indexing__canonicalization-troubleshooting.md) — `/search/docs/crawling-indexing/canonicalization-troubleshooting`
 - [如何使用 rel="canonical" 及其他方法指定规范网址](./docs/search__docs__crawling-indexing__consolidate-duplicate-urls.md) — `/search/docs/crawling-indexing/consolidate-duplicate-urls`
-- [控制与 Google 分享的内容](./docs/search__docs__crawling-indexing__control-what-you-share.md) — `/search/docs/crawling-indexing/control-what-you-share`
+- [控制与 Google 搜索分享的内容](./docs/search__docs__crawling-indexing__control-what-you-share.md) — `/search/docs/crawling-indexing/control-what-you-share`
 - [Googlebot](./docs/search__docs__crawling-indexing__googlebot.md) — `/search/docs/crawling-indexing/googlebot`
 - [Google 编入索引的文件类型](./docs/search__docs__crawling-indexing__indexable-file-types.md) — `/search/docs/crawling-indexing/indexable-file-types`
 - [将动态呈现作为临时解决方法](./docs/search__docs__crawling-indexing__javascript__dynamic-rendering.md) — `/search/docs/crawling-indexing/javascript/dynamic-rendering`

@@ -1,11 +1,11 @@
 ---
 name: google-seo-checker
-description: 用 65 条规则查一个 URL/HTML 的 SEO 问题，每条规则源自 Google Search 官方文档；并能反查 152 篇 Google docs 找原文。触发：SEO 检查 / page audit / canonical 对不对 / schema 报错 / Google 怎么说 X / robots.txt 是否屏蔽 / hreflang 配置 / Core Web Vitals / meta description 长度 / 这页能不能被收录。不触发：全站 crawl 排查（→ seo-geo-loop）、关键词调研（→ marketing:seo-audit）、新功能开发（→ precision-dev）、品牌洗白（→ brand-scrub）。
+description: 用 65 条规则查一个 URL/HTML 的 SEO 问题，每条规则源自 Google Search 官方文档；并能反查 150 篇 Google docs 找原文。触发：SEO 检查 / page audit / canonical 对不对 / schema 报错 / Google 怎么说 X / robots.txt 是否屏蔽 / hreflang 配置 / Core Web Vitals / meta description 长度 / 这页能不能被收录。不触发：全站 crawl 排查（→ seo-geo-loop）、关键词调研（→ marketing:seo-audit）、新功能开发（→ precision-dev）、品牌洗白（→ brand-scrub）。
 ---
 
 # google-seo-checker
 
-> 152 篇 Google Search 官方文档 → 65 条机检规则 + 全文反查工具。
+> 150 篇 Google Search 官方文档 → 65 条机检规则 + 全文反查工具。
 >
 > 反面教材：写 SEO 不查原文 → AI 编一套"Google 推荐 ..." → 客户上线后 GSC 报错才发现规则错了。
 
@@ -136,5 +136,5 @@ for (const r of result.results) {
 `docs/` 目录每月由 GitHub Actions (`refresh-docs.yml`) 自动刷新 + 提 PR。手动也行：
 
 ```bash
-node fetch-docs.mjs --force   # 重新拉 152 篇
+node fetch-docs.mjs --force   # 重新拉 150 篇
 ```

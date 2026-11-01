@@ -97,6 +97,25 @@ path: /search/docs/fundamentals/creating-helpful-content
 
  阅读这些指南可能会帮助您从 E-E-A-T 的角度自行评估内容的表现、需要考虑改进的方面，以及在概念上与我们的自动化系统对内容进行排名时使用的各种不同指标保持一致。
 
+ 除了 E-E-A-T 之外，[搜索质量评估员指南](https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf)还强调，评估网页质量的最关键因素之一是主要内容的质量，具体而言，就是主要内容能否让网页有效实现其目的并提供令人满意的用户体验。
+
+## 主要内容
+
+ Google 搜索将“主要内容”定义为网页中直接帮助网页实现其目的的任何部分。根据网页的主要意图，主要内容直接实现网页的目的，可能包括：
+
+-  **主要文字和媒体**：网页上的主要文字、文章、图片、音频或视频文件。
+-  **互动功能**：内置功能，例如计算器、在线工具、游戏或搜索功能。
+-  **用户生成的内容：**论坛讨论、客户评价、评论或用户上传的媒体内容，前提是这些内容能直接实现网页的目的（例如，网页的主旨就是讨论特定的用户问题）。
+-  **标签页或展开的部分**：位于互动式标签页后面的信息（例如产品规格、安全说明或用户评价）。
+-  **网页标题和正文标题：**整个网页中可见的标题，用于概括页面主题，并帮助用户在访问前做出明智的判断。
+
+ 在审核内容质量时，搜索质量评分者会接受培训，以评估主要内容的以下基本属性：
+
+-  **用心程度：**在创作内容或开发其背后的支撑系统时，人类所投入的精力与心血。例如，撰写原创分析、手动翻译诗歌，或为游戏开发自定义互动地图，这些都体现了极高的用心程度。与此形成鲜明对比的是，如果只是利用 Feed 自动生成网页，或是使用生成式 AI 大量炮制文本，而缺乏人工监督或精选，则几乎不需要投入任何心血。注明出处或向其他来源致谢，并不能取代创作者本人所应投入的原创心血。
+-  **原创性：**内容在多大程度上提供了独特且新颖的信息或见解，而非简单重复其他网站上已有的内容。
+-  **才华或技艺：**内容是否展现了为访客提供满意体验所需的才华、技艺或专业水准（例如行文流畅、视频制作精良或网页工具功能完备）。请注意，并非所有内容都需要专业知识。例如，如果有人分享自己如何找到清理车道积雪的新妙招，这类经验分享通常并不一定需要具备专门的专业知识。
+-  **准确性**：对于信息性网页，内容应符合事实。对于可能对人们的生活或福祉产生重大影响的主题（即 YMYL 主题），内容必须确保高度准确，并与公认的专家共识保持一致。
+
 ## 询问与内容相关的“对象、方式和原因”
 
  考虑从“对象、方式和原因”方面评估您的内容，以这种方式得到我们系统的奖励。
@@ -110,6 +129,8 @@ path: /search/docs/fundamentals/creating-helpful-content
 - 署名是否进一步介绍了参与其中的作者及其背景和所撰写的领域？
 
  如果您能明确指出内容的创建者，将有可能在概念上符合 E-E-A-T 标准，并顺利取得成功。我们强烈建议您添加准确的作者信息，例如在内容的显眼位置添加署名。
+
+ 不过，请避免使用欺骗性的作者信息。伪造创作者资料（例如使用 AI 生成的头像、虚构的名字或虚假的资历，使内容看起来像是出自人类专家之手）属于一种欺骗行为。任何形式的欺骗行为都会让网页失去用户和我们自动化质量系统的信任，并被视为网页质量低下的信号。
 
 ### 方式（创建内容的方式）
 
@@ -137,82 +158,4 @@ path: /search/docs/fundamentals/creating-helpful-content
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-18。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-18。"],[],["Google's systems prioritize helpful, people-first content, not content designed solely for search engine rankings. Evaluate your content by assessing its originality, completeness, and value, and consider external feedback. Content should demonstrate expertise, clear sourcing, and trustworthiness (E-E-A-T). Focus on who created the content, how it was produced, including any automation or AI usage, and most importantly, why it was created. Prioritize helping people over manipulating search rankings and avoid producing mass or low-value content.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-10-08。

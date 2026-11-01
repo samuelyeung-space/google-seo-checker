@@ -42,8 +42,7 @@ path: /search/docs/crawling-indexing/amp/remove-amp
 
 1. 将网页的 AMP 和非 AMP 版本从您的服务器或 CMS 中删除。
 2. 使用[移除过期内容](https://www.google.com/webmasters/tools/removals?hl=zh-cn)工具请求移除您的网页。输入要移除网页的 AMP 和非 AMP 版本对应的网址。
-3. [更新 Google AMP Cache](https://developers.google.com/amp/cache/update-cache?hl=zh-cn)，确保 AMP 内容已从缓存中移除。
-4. 在 Google 搜索中搜索您的内容，验证您的 AMP 网页是否已移除。如需验证大量 AMP 网页是否已移除，您可以查看 Search Console 中的[AMP 状态报告](https://search.google.com/search-console/amp?hl=zh-cn)， [并在“已编入索引的 AMP 网页数”图表中查看是否有下降趋势线。](https://support.google.com/webmasters/answer/7450883?hl=zh-cn)
+3. 在 Google 搜索中搜索您的内容，验证您的 AMP 网页是否已移除。如需验证大量 AMP 网页是否已移除，您可以查看 Search Console 中的[AMP 状态报告](https://search.google.com/search-console/amp?hl=zh-cn)， [并在“已编入索引的 AMP 网页数”图表中查看是否有下降趋势线。](https://support.google.com/webmasters/answer/7450883?hl=zh-cn)
 
 您可以在[移除过期内容](https://www.google.com/webmasters/tools/removals?hl=zh-cn)页面中查看请求的处理状态。
 
@@ -53,7 +52,7 @@ path: /search/docs/crawling-indexing/amp/remove-amp
 
 此部分介绍了如何从 Google 搜索结果中仅移除 AMP 网页，同时仍保留非 AMP 规范网页。
 
-**注意**：请勿通过直接删除文件中的内容来移除 AMP 内容。缺少所有标记的空文档会被视为无效文档。当 Google 搜索识别出文档无效时，会继续提供最旧的可用有效版本。
+**注意**：请勿通过删除文件中的内容来移除 AMP 内容。缺少所有标记的空文档会被视为无效文档。当 Google 搜索识别出文档无效时，会继续提供最旧的可用有效版本。
 
 如需从 Google 搜索结果中移除网页的 AMP 版本（同时保留非 AMP 规范网页），请按以下步骤操作：
 
@@ -62,10 +61,9 @@ path: /search/docs/crawling-indexing/amp/remove-amp
 3. 配置从已移除的 AMP 网页到规范的非 AMP 网页的重定向。
 4. 从 Google 搜索结果中移除 AMP 网页后，如果您还想从非 Google 平台中移除该 AMP 网页，请完成以下步骤：
 
-  1. 将服务器配置为针对已移除的 AMP 网页发送 `HTTP 404 Not Found`，从而移除 AMP 网页，使其无法再被访问。这样可确保 Google AMP Cache 不会向其他平台提供过时的内容。
-  2. [更新 Google AMP Cache](https://developers.google.com/amp/cache/update-cache?hl=zh-cn)，确保 AMP 内容已从缓存中移除。
-  3. 在 Google 搜索中搜索您的内容，验证您的 AMP 网页是否已移除。如需验证大量 AMP 网页是否已移除，可以查看 Search Console 中的[AMP 状态报告](https://search.google.com/search-console/amp?hl=zh-cn)， [并在“已编入索引的 AMP 网页数”图表中查看是否出现下降趋势线。](https://support.google.com/webmasters/answer/7450883?hl=zh-cn)
-  4. 如需使固定链接保持有效状态，请将服务器配置为针对已移除的 AMP 网页发送 `HTTP 301 Redirect`，以便跳转到非 AMP 规范网页。
+  1. 将服务器配置为针对已移除的 AMP 网页发送 `HTTP 404 Not Found`，从而移除 AMP 网页，使其无法再被访问。
+  2. 在 Google 搜索中搜索您的内容，验证您的 AMP 网页是否已移除。如需验证大量 AMP 网页是否已移除，可以查看 Search Console 中的[AMP 状态报告](https://search.google.com/search-console/amp?hl=zh-cn)， [并在“已编入索引的 AMP 网页数”图表中查看是否出现下降趋势线。](https://support.google.com/webmasters/answer/7450883?hl=zh-cn)
+  3. 如需使固定链接保持有效状态，请将服务器配置为针对已移除的 AMP 网页发送 `HTTP 301 Redirect`，以便跳转到非 AMP 规范网页。
 
 ## 通过 CMS 移除 AMP 和非 AMP 网页
 
@@ -89,82 +87,4 @@ path: /search/docs/crawling-indexing/amp/remove-amp
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-18。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-18。"],[],["To remove AMP pages from Google Search, you can either remove all versions (AMP and non-AMP) or only AMP pages. To remove all versions, delete both page types from your server/CMS, use the \"Remove outdated content\" tool, and update the Google AMP Cache. To remove only AMP, remove the `rel=\"amphtml\"` link, configure redirects from the AMP page to the canonical non-AMP page, and update the Google AMP Cache. Removing content via CMS can remove all or single AMP pages.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-07-08。

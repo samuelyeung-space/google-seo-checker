@@ -968,7 +968,7 @@ export const RULES = [
     category: 'index',
     severity: 'warn',
     title: '若声明 <link rel="amphtml">，应为绝对 URL',
-    source: `${D}/crawling-indexing/amp/about-amp`,
+    source: `${D}/crawling-indexing/amp`,
     check: ({ getLinkByRel, links }) => {
       const amp = getLinkByRel(links, 'amphtml');
       if (!amp) return { status: 'skip' };

@@ -49,9 +49,9 @@ SEO tooling today is roughly:
 1. **Lighthouse / PageSpeed** — strong on Core Web Vitals, weak on schema / canonical / robots / spam policies
 2. **Screaming Frog / Ahrefs / Semrush** — commercial, black-box rules, overkill for small projects
 
-Meanwhile the actual ground truth — [developers.google.com/search/docs](https://developers.google.com/search/docs) — is 152 pages most engineers never read end-to-end.
+Meanwhile the actual ground truth — [developers.google.com/search/docs](https://developers.google.com/search/docs) — is 150 pages most engineers never read end-to-end.
 
-This tool's job: **turn the machine-checkable parts of those 152 pages into if-statements**, each linked back to its source doc.
+This tool's job: **turn the machine-checkable parts of those 150 pages into if-statements**, each linked back to its source doc.
 
 ## Install the optional CLI aliases
 

@@ -19,7 +19,20 @@ path: /search/docs/crawling-indexing/canonicalization-troubleshooting
 
 # 解决规范化问题
 
- 使用[网址检查工具](https://support.google.com/webmasters/answer/9012289?hl=zh-cn#google-selected-canonical)可了解 [Google 会将哪个网页视为规范网页](https://developers.google.com/search/docs/crawling-indexing/canonicalization?hl=zh-cn)。即使您明确指定了规范网页，Google 也可能会出于各种原因（例如内容质量）而选择其他网页作为规范网页。在排查问题之前，请思考对来自 Google 搜索的用户而言，Google 选择的规范网址是否比您的首选规范网址更有意义。
+ 即使您明确指定了规范网页，Google 也可能会出于各种原因（例如内容质量或技术信号）而选择其他网页作为规范网页。如需排查规范化问题，请按以下步骤操作：
+
+1.  **检查 Google 将哪个网页视为规范网页**：使用[网址检查工具](https://support.google.com/webmasters/answer/9012289?hl=zh-cn#google-selected-canonical)可了解 [Google 会将哪个网页视为规范网页](https://developers.google.com/search/docs/crawling-indexing/canonicalization?hl=zh-cn)，并思考对来自 Google 搜索的用户而言，Google 选择的规范网址是否比您的首选规范网址更有意义。
+ **重要提示**：如果规范网址所在的 Search Console 资源不归您所有，您将无法查看重复网页的任何流量。
+
+2.  **查找技术性规范化问题**：验证是否因技术配置错误而导致系统检测到出乎预料的首选规范网址。查看[常见规范化问题表格](#common-issues)，检查是否存在不正确的规范元素、服务器配置错误或缺少本地化注释等问题。
+3.  **确保集群在一起的网页足够不同**：从技术上讲，解决规范化问题归根结底就是确保[集群在一起](https://developers.google.com/search/docs/crawling-indexing/canonicalization?hl=zh-cn#canonical-how)的网页足够不同。注意事项：
+
+  -  **重新评估需要时间**：即使在修正内容问题后，Google 也可能会将重复集群中的网页保留**最多两周**。
+  -  **内容差异很重要**：如果新内容与其他集群网页之间的差异明显且显著，网页通常会更快地拆分出来。
+
+4.  **请求重新编入索引**：修正内容问题后，请使用 Search Console [网址检查工具](https://support.google.com/webmasters/answer/9012289?hl=zh-cn#request_indexing)中的“请求编入索引”功能，让 Google 重新评估集群中的网页。不过，由于此功能受配额限制，请将其留给最重要的网址。
+
+## 常见的规范化问题
 
  有多种原因会造成 Google 选择的规范网址不同于您希望在 Google 搜索中显示的规范网址。最常见的问题有：
 
@@ -52,86 +65,6 @@ path: /search/docs/crawling-indexing/canonicalization-troubleshooting
 
  在极少数情况下，我们的算法选择的网址可能来自未经您允许擅自使用您的内容的外部网站。如果您认为其他网站违反版权法抄袭了您的内容，可以与该网站的站长联系，要求其移除相关内容。此外，您还可以[根据《数字千年版权法案》提交请求](https://support.google.com/legal/answer/1120734?hl=zh-cn)，请求 Google 从搜索结果中移除涉嫌侵权的网页。
 
- 请注意，如果规范网址所在的 Search Console 资源不归您所有，您将无法查看重复网页的任何流量。
-
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2025-12-31。
-
-     [[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2025-12-31。"],[],["To address canonicalization issues, use the URL Inspection tool to see Google's chosen canonical page. Common issues include incorrect language annotations, faulty CMS settings, server misconfigurations, malicious hacks, syndicated content, and copycat websites. Rectify language variants with `hreflang`, fix CMS errors, resolve server issues with your hosting provider, address malicious code, and advise syndication partners to block indexing. Report copycat sites to their host and file a DMCA request with Google if necessary.\n"]]
-
--  [ LinkedIn  ](https://www.linkedin.com/showcase/googlesearchcentral/)
-在 LinkedIn 上加入我们
-
--  [ YouTube  ](https://www.youtube.com/channel/UCWf2ZlNsCGDS89VBF_awNvA?hl=zh-cn)
-观看我们的视频
-
--  [ 博客  ](https://feeds.feedburner.com/blogspot/amDG)
-订阅我们的 RSS Feed
-
--  [ 播客  ](https://pod.link/1512522198)
-聆听 Search Off the Record（查无记录）
-
--  [ X (Twitter)  ](https://twitter.com/googlesearchc)
-在 X (Twitter) 上加入我们
-
--
-
-### 获取支持
-
-  -  [ 转到帮助论坛 ](https://support.google.com/webmasters/community)
-  -  [ 向“咨询交流时间”活动提交问题 ](/search/help/office-hours)
-  -  [ 举报垃圾内容、钓鱼式攻击内容或恶意软件 ](/search/help/report-quality-issues)
-  -  [ 更多的支持资源 ](/search/help)
-
--
-
-### 资源
-
-  -  [ 您需要 SEO 吗？ ](/search/docs/fundamentals/get-on-google)
-  -  [ SEO 新手指南 ](/search/docs/fundamentals/seo-starter-guide)
-  -  [ 搜索系统的状态 ](https://status.search.google.com)
-  -  [ Search Console 文档 ](https://support.google.com/webmasters)
-  -  [ 案例研究 ](/search/case-studies/overview)
-
--
-
-### 工具
-
-  -  [ Search Console ](https://search.google.com/search-console)
-  -  [ 富媒体搜索结果测试 ](https://search.google.com/test/rich-results)
-  -  [ PageSpeed Insights ](https://pagespeed.web.dev)
-  -  [ AMP 测试 ](https://search.google.com/test/amp)
-
-  [](https://developers.google.com/?hl=zh-cn)
-
--  [ Android ](//developer.android.com?hl=zh-cn)
--  [ Chrome ](//developer.chrome.com/home?hl=zh-cn)
--  [ Firebase ](//firebase.google.com?hl=zh-cn)
--  [ Google Cloud Platform ](//cloud.google.com?hl=zh-cn)
--  [ Google AI ](//ai.google.dev/?hl=zh-cn)
--  [ 所有产品 ](https://developers.google.com/products?hl=zh-cn)
-
--  [ 条款 ](https://developers.google.com/terms/site-terms?hl=zh-cn)
--  [ 隐私权政策 ](//policies.google.com/privacy?hl=zh-cn)
--  [ Manage cookies ](#)
-
--  [English]()
--  [Deutsch]()
--  [Español]()
--  [Español – América Latina]()
--  [Français]()
--  [Indonesia]()
--  [Italiano]()
--  [Polski]()
--  [Português – Brasil]()
--  [Tiếng Việt]()
--  [Türkçe]()
--  [Русский]()
--  [العربيّة]()
--  [हिंदी]()
--  [ภาษาไทย]()
--  [中文 – 简体]()
--  [中文 – 繁體]()
--  [日本語]()
--  [한국어]()
+最后更新时间 (UTC)：2026-09-11。
