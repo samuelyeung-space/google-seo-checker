@@ -11,6 +11,7 @@ const repo = path.dirname(fileURLToPath(import.meta.url));
 const FAQ = '/search/docs/appearance/structured-data/faqpage';
 const SXG = '/search/docs/appearance/signed-exchange';
 const GUIDE = '/search/docs/fundamentals/seo-starter-guide';
+const DOCS_HOME = '/search/docs';
 const slug = p => p.slice(1).replaceAll('/', '__');
 const titles = { [FAQ]: 'FAQ（FAQPage、Question、Answer）结构化数据', [SXG]: '开始在 Google 搜索中使用 Signed Exchange', [GUIDE]: '搜索引擎优化 (SEO) 入门指南' };
 const bodies = {
@@ -18,6 +19,8 @@ const bodies = {
   [SXG]: 'Signed Exchange (SXG) lets a browser authenticate content served by a cache. Configure your certificate and HTTP headers before enabling signed exchanges. Test the generated package and inspect the cache response to confirm the signature is valid and the browser can display the publisher URL.',
   [GUIDE]: 'Help search engines discover and understand your pages. Use descriptive titles and useful text. Organize the site with crawlable links, and provide important information in a way that visitors can understand. Check that the content can be accessed and that each page serves a clear purpose.',
 };
+titles[DOCS_HOME] = '浏览 Google 搜索文档，改善网站的 SEO 效果';
+bodies[DOCS_HOME] = bodies[GUIDE];
 const updates = 'The latest documentation updates mention FAQPage, Question, Answer, Signed Exchange and SXG. These are entries in a chronological change log, with links to other documentation pages. This is a generic updates page and contains no topic-specific instructions for implementing the requested feature.';
 
 function html(p, { title = titles[p], body = bodies[p], canonical = p } = {}) {
@@ -102,6 +105,23 @@ test('rejects missing canonical identity', async () => {
 
 test('rejects a page without an article heading instead of falling back to the site title', async () => {
   await withRefresh([FAQ], (_url, res) => res.end(html(FAQ).replace(/<h1>[\s\S]*?<\/h1>/, '')), context => unchanged(context, FAQ));
+});
+
+test('accepts the documentation landing page with its google-seo H2 instead of an H1', async () => {
+  await withRefresh([DOCS_HOME], (_url, res) => res.end(html(DOCS_HOME).replace('<h1>', '<h2 id="google-seo">').replace('</h1>', '</h2>')), async ({ root, result }) => {
+    assert.equal(result.code, 0, result.stderr);
+    const md = await readFile(path.join(root, 'docs', `${slug(DOCS_HOME)}.md`), 'utf8');
+    assert.ok(md.includes(titles[DOCS_HOME]));
+    assert.ok(md.includes(bodies[DOCS_HOME]));
+  });
+});
+
+test('landing page heading compatibility still rejects generic updates content', async () => {
+  await withRefresh([DOCS_HOME], (_url, res) => res.end(html(DOCS_HOME, { title: '最新文档更新', body: updates }).replace('<h1>', '<h2 id="google-seo">').replace('</h1>', '</h2>')), context => unchanged(context, DOCS_HOME));
+});
+
+test('does not accept an arbitrary H2 as the documentation landing page heading', async () => {
+  await withRefresh([DOCS_HOME], (_url, res) => res.end(html(DOCS_HOME).replace('<h1>', '<h2 id="other">').replace('</h1>', '</h2>')), context => unchanged(context, DOCS_HOME));
 });
 
 test('does not count footer text as topic evidence', async () => {
