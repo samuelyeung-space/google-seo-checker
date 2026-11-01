@@ -11,7 +11,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { articleToMarkdown, extractTitle } from './lib/html-to-markdown.mjs';
+import { validateFetchedDocument } from './lib/doc-validation.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
@@ -28,9 +28,12 @@ function pathToSlug(p) {
 
 async function fetchWithRetry(url, attempt = 1) {
   try {
-    const res = await fetch(url, { headers: { 'user-agent': UA, 'accept-language': 'zh-CN,zh;q=0.9' } });
+    const res = await fetch(url, {
+      headers: { 'user-agent': UA, 'accept-language': 'zh-CN,zh;q=0.9' },
+      signal: AbortSignal.timeout(30_000),
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
+    return { html: await res.text(), finalUrl: res.url };
   } catch (err) {
     if (attempt >= RETRIES) throw err;
     await new Promise(r => setTimeout(r, 500 * attempt));
@@ -45,7 +48,7 @@ async function pool(items, worker, n) {
     while (cursor < items.length) {
       const i = cursor++;
       try { results[i] = await worker(items[i], i); }
-      catch (e) { results[i] = { error: e?.message || String(e) }; }
+      catch (e) { results[i] = { error: `${items[i]}: ${e?.message || String(e)}` }; }
     }
   });
   await Promise.all(workers);
@@ -55,13 +58,9 @@ async function pool(items, worker, n) {
 async function main() {
   const srcRaw = await readFile(path.join(ROOT, 'sources.json'), 'utf8');
   const { base, paths, lang } = JSON.parse(srcRaw);
-  await mkdir(RAW_DIR, { recursive: true });
-  await mkdir(DOCS_DIR, { recursive: true });
-
   const force = process.argv.includes('--force');
   const total = paths.length;
   let done = 0;
-  const tocEntries = [];
 
   const results = await pool(paths, async (p) => {
     const slug = pathToSlug(p);
@@ -69,15 +68,11 @@ async function main() {
     const mdFile = path.join(DOCS_DIR, `${slug}.md`);
     const url = `${base}${p}?hl=${lang}`;
 
-    let html;
-    if (!force && existsSync(rawFile)) {
-      html = await readFile(rawFile, 'utf8');
-    } else {
-      html = await fetchWithRetry(url);
-      await writeFile(rawFile, html, 'utf8');
-    }
-    const title = extractTitle(html) || slug;
-    const md = articleToMarkdown(html);
+    const cached = !force && existsSync(rawFile);
+    const fetched = cached
+      ? { html: await readFile(rawFile, 'utf8') }
+      : await fetchWithRetry(url);
+    const { title, markdown } = validateFetchedDocument({ requestedUrl: url, ...fetched });
     const front = [
       '---',
       `title: ${JSON.stringify(title)}`,
@@ -90,13 +85,11 @@ async function main() {
       '',
       `> 来源: ${url}`,
       '',
-      md,
+      markdown,
     ].join('\n');
-    await writeFile(mdFile, front, 'utf8');
-    tocEntries.push({ slug, title, path: p });
     done++;
     process.stdout.write(`\r[${done}/${total}] ${p.padEnd(70).slice(0, 70)}`);
-    return { slug, title };
+    return { slug, title, path: p, rawFile, mdFile, front, html: fetched.html, cached };
   }, CONCURRENCY);
 
   process.stdout.write('\n');
@@ -105,8 +98,16 @@ async function main() {
   if (errored.length) {
     console.warn(`\n${errored.length} failures:`);
     errored.forEach(e => console.warn(`  ${e.error}`));
+    throw new Error('Document refresh rejected; no docs, raw cache, or index were written');
   }
 
+  await mkdir(RAW_DIR, { recursive: true });
+  await mkdir(DOCS_DIR, { recursive: true });
+  for (const result of results) {
+    if (!result.cached) await writeFile(result.rawFile, result.html, 'utf8');
+    await writeFile(result.mdFile, result.front, 'utf8');
+  }
+  const tocEntries = results;
   tocEntries.sort((a, b) => a.path.localeCompare(b.path));
   const toc = [
     '# Google Search SEO 文档索引',

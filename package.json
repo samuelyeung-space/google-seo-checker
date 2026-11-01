@@ -18,6 +18,7 @@
     "cli.mjs",
     "lookup.mjs",
     "fetch-docs.mjs",
+    "validate-docs.mjs",
     "run.mjs",
     "report.mjs",
     "rules.mjs",
@@ -62,6 +63,7 @@
     "check": "node cli.mjs",
     "lookup": "node lookup.mjs",
     "fetch-docs": "node fetch-docs.mjs",
-    "test": "node test.mjs"
+    "validate-docs": "node validate-docs.mjs",
+    "test": "node test.mjs && node --test fetch-docs.test.mjs && node validate-docs.mjs"
   }
 }

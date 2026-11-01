@@ -25,8 +25,8 @@ jobs:
       - name: Force-refresh docs
         run: node fetch-docs.mjs --force
 
-      - name: Smoke-test rules still load
-        run: node -e "import('./rules.mjs').then(m => { if (m.RULES.length < 30) throw new Error('rule count too low'); console.log(m.RULES.length, 'rules OK'); })"
+      - name: Validate refreshed documents and run regression tests
+        run: npm test
 
       - name: Open PR if changes
         uses: peter-evans/create-pull-request@v6
@@ -37,7 +37,8 @@ jobs:
             Automated monthly re-scrape of developers.google.com/search/docs.
 
             Review the diff in `docs/` to see what Google changed.
-            If a doc's URL was removed upstream, `sources.json` needs manual update.
+            Redirected, unrelated or empty pages fail validation before publication.
+            If a doc's URL was removed upstream, review its replacement before updating `sources.json`.
           branch: bot/refresh-docs
           delete-branch: true
           add-paths: |
