@@ -998,24 +998,15 @@ export const RULES = [
     id: 'jsonld-site-searchaction',
     category: 'schema',
     severity: 'info',
-    title: '首页 WebSite 建议声明 potentialAction (SearchAction) 启用站内搜索框',
-    source: `${D}/appearance/sitelinks`,
-    check: ({ jsonLdNodes, pageUrl }) => {
-      if (!pageUrl) return { status: 'skip' };
-      try {
-        const u = new URL(pageUrl);
-        if (u.pathname !== '/' && u.pathname !== '') return { status: 'skip' };
-      } catch { return { status: 'skip' }; }
-      const sites = jsonLdNodes.filter(n => /WebSite/i.test(typeOf(n)));
-      if (!sites.length) return { status: 'warn', message: '首页未声明 WebSite 结构化数据' };
-      const hasAction = sites.some(s => {
-        const a = Array.isArray(s.potentialAction) ? s.potentialAction : (s.potentialAction ? [s.potentialAction] : []);
-        return a.some(act => /SearchAction/i.test(act['@type'] || ''));
-      });
-      return hasAction
-        ? { status: 'pass' }
-        : { status: 'warn', message: 'WebSite 未声明 SearchAction（影响站内搜索框 sitelinks）' };
-    },
+    title: 'Sitelinks search box retired — SearchAction is not required',
+    source: 'https://developers.google.com/search/blog/2024/10/sitelinks-search-box',
+    // Keep the ID for report consumers, but do not prescribe markup for a
+    // Google Search feature retired starting 2024-11-21. Existing markup
+    // is harmless; WebSite site-name checks remain separate.
+    check: () => ({
+      status: 'skip',
+      message: 'Google retired the sitelinks search box starting 2024-11-21. SearchAction is not required; existing markup can remain.',
+    }),
   },
 
   // ===== V. Publication / freshness =========================================
@@ -1097,3 +1088,4 @@ export const CATEGORIES = {
   js: 'JavaScript 可抓取性',
   perf: '性能与渲染',
 };
+

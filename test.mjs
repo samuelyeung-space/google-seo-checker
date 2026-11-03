@@ -86,7 +86,23 @@ async function main() {
     await rm(tmp, { recursive: true, force: true });
   }
 
+  console.log('\n4. Retired sitelinks search box must not create work');
+  const retired = RULES.find(r => r.id === 'jsonld-site-searchaction');
+  const home = { pageUrl: 'https://example.com/', jsonLdNodes: [] };
+  const scenarios = [
+    ['no WebSite markup', []],
+    ['WebSite without SearchAction', [{ '@type': 'WebSite', name: 'Example' }]],
+    ['existing SearchAction markup', [{ '@type': 'WebSite', potentialAction: { '@type': 'SearchAction' } }]],
+  ];
+  for (const [label, jsonLdNodes] of scenarios) {
+    assert(retired.check({ ...home, jsonLdNodes }).status === 'skip', `${label}: no retired-feature warning or approval`);
+  }
+  assert(retired.source === 'https://developers.google.com/search/blog/2024/10/sitelinks-search-box', 'retirement points to the official announcement');
+  const siteName = RULES.find(r => r.id === 'jsonld-website-name');
+  assert(siteName.check({ jsonLdNodes: [{ '@type': 'WebSite' }] }).status === 'warn', 'supported WebSite site-name check still reports a missing name');
+
   console.log('\nAll tests passed.');
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
+
